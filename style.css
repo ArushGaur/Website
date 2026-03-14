@@ -1,0 +1,2748 @@
+/* style.css */
+:root {
+    --primary: #006D77;
+    /* Deep Teal - Relaxing */
+    --accent: #83C5BE;
+    /* Soft Mint - Eye Attracting */
+    --bg-light: #EDF6F9;
+    --text-dark: #2D3142;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background: #ffffff;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Premium Announcement Bar ===== */
+
+.announcement-bar{
+    color:#e6f7f8;
+    width:100%;
+    background:linear-gradient(90deg,#004f56,#006D77,#0a9396);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:14px 20px;
+    box-shadow:0 4px 18px rgba(0,0,0,0.15);
+    position:relative;
+    z-index:999;
+}
+
+/* layout */
+.announcement-inner{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+/* brand container */
+.brand-highlight{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+/* animated dot */
+.brand-dot{
+    width:10px;
+    height:10px;
+    background:#2ec4b6;
+    border-radius:50%;
+    animation:pulseDot 2s infinite;
+}
+
+/* main name styling */
+.brand-name{
+    font-size:1.6rem;
+    font-weight:900;
+    background:linear-gradient(90deg,#ffffff,#bdeff2,#ffffff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:
+        0 0 6px rgba(255,255,255,0.4),
+        0 0 14px rgba(46,196,182,0.3);
+}
+
+/* secondary text */
+.announcement-text{
+    font-size:0.95rem;
+    opacity:0.95;
+    font-weight:500;
+}
+
+/* pulse animation */
+@keyframes pulseDot{
+    0%{transform:scale(1);opacity:1;}
+    50%{transform:scale(1.6);opacity:0.5;}
+    100%{transform:scale(1);opacity:1;}
+}
+
+/* slide entry animation */
+.announcement-bar{
+    animation:barReveal .7s ease;
+}
+
+@keyframes barReveal{
+    from{
+        transform:translateY(-100%);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+/* mobile */
+@media(max-width:768px){
+
+    .announcement-inner{
+        flex-direction:column;
+        gap:4px;
+    }
+
+    .brand-name{
+        font-size:1.25rem;
+    }
+
+    .announcement-text{
+        font-size:0.85rem;
+    }
+
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =========================================
+   ELEGANT HERO SECTION (NEW UPDATED PART)
+   ========================================= */
+
+.hero-elegant {
+    position: relative;
+    padding: 100px 0;
+    background-size: 77%;
+    background-color: #f4f0e4;
+    background-repeat: no-repeat;
+    background-position: 20%;
+    background-attachment: scroll;
+    /* Image scrolls with the page */
+    overflow: hidden;
+}
+
+/* --- The Elegant Transparent Blur Box --- */
+.glass-text-card {
+    /* 1. Background MUST be semi-transparent (last number 0.3) */
+    background: rgba(255, 255, 255, 0.3) !important;
+
+    /* 2. The Blur Effect */
+    backdrop-filter: blur(280px);
+    -webkit-backdrop-filter: blur(50px);
+    /* Required for Safari */
+
+    /* 3. Aesthetic touches */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 24px;
+    padding: 40px;
+    margin-top: 20px;
+    max-width: 700px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure title doesn't have extra top margin inside the box */
+.main-title {
+    margin-top: 0;
+    font-size: 3.2rem;
+    line-height: 1.1;
+    color: var(--primary);
+}
+
+.hero-description {
+    margin-bottom: 0;
+    /* Keeps the box compact at the bottom */
+}
+
+/* --- Mobile Compatibility --- */
+/* style.css */
+
+/* style.css */
+
+/* style.css */
+
+
+/* style.css */
+
+@media (max-width: 768px) {
+    /* 1. Scoped container for the specific hero layout only */
+    .hero-custom-mobile-layout {
+        display: flex;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        margin-top: 15px;
+        padding-left: 0; /* Ensures content is at the far left */
+    }
+
+    /* 2. Text Group: Aligned leftmost with NO card effects */
+    .hero-text-group {
+        flex: 2; 
+        z-index: 10; /* Keeps text in front */
+        position: relative;
+        text-align: left !important;
+        background: none !important;
+        backdrop-filter: none !important;
+        border: none !important;
+        padding: 0 !important;
+    }
+
+    /* 3. Title: "Modern Learning" on one line */
+    .hero-text-group .main-title {
+        font-size: 1.8rem !important; /* Shrunk to fit width */
+        white-space: nowrap;         /* FORCES "Modern Learning" into one line */
+        display: block;
+        margin: 0;
+        text-align: left !important;
+        color: var(--primary);
+    }
+
+    .hero-text-group .serif-italic {
+        display: block;              /* Places "For Modern Students" below */
+        font-size: 1.6rem !important;
+        margin-top: 4px;
+        text-align: left !important;
+    }
+
+    /* 4. Description: Move further left and smaller */
+    .hero-text-group .hero-description {
+        font-size: 0.8rem !important;
+        line-height: 1.4;
+        margin: 10px 0 0 0 !important; /* Reset margins for leftmost alignment */
+        max-width: 240px;            /* Narrower so it doesn't cover image focus */
+        text-align: left !important;
+    }
+
+    /* 5. Image: Placed behind on the rightmost side */
+    .hero-image-overlay {
+        flex: 1;
+        margin-left: -100px;          /* Pulls the image behind the text */
+        z-index: 1;                  /* Lower z-index places it in the back */
+    }
+
+    .hero-image-overlay img {
+        width: 130%;                 /* Scale up to cover the background area */
+        height: auto;
+        opacity: 1;               /* Slight transparency for text readability */
+        border-radius: 30px;
+        pointer-events: none;
+    }
+}
+
+/* Remove or keep hidden the old parallax div */
+.parallax-bg {
+    display: none;
+}
+
+/* Optional: Make the glass form slightly more opaque for better legibility on an image */
+.glass-form {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+    .hero-elegant {
+        padding: 60px 0;
+        /* Centers the focus of the image for narrow screens */
+        background-position: center;
+    }
+
+    .main-title {
+        font-size: 2.8rem;
+        /* Adjusted for mobile screens */
+    }
+}
+
+.hero-split {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+}
+
+.hero-content-left {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start !important; /* Forces children to start at the left */
+        text-align: left !important;
+    }
+
+.trust-pill {
+    display: inline-flex;
+    justify-content: flex-start !important;
+    align-items: center;
+    background: white;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.dot {
+    height: 8px;
+    width: 8px;
+    background-color: #2ec4b6;
+    border-radius: 50%;
+    margin-right: 10px;
+    animation: pulse 2s infinite;
+}
+
+.main-title {
+    font-size: 4rem;
+    line-height: 1.1;
+    color: var(--primary);
+    margin: 0 0 20px 0;
+    font-weight: 700;
+}
+
+.serif-italic {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 3.7rem;
+    font-weight: 400;
+    color: rgb(0, 109, 119);
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+/* Glassmorphism Form */
+.glass-form {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 40px;
+    border-radius: 30px;
+    width: 420px;
+    box-shadow: 0 25px 50px rgba(0, 109, 119, 0.1);
+}
+
+.glass-form h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin: 0 0 10px 0;
+    color: var(--primary);
+}
+
+.glass-form p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* Global Inputs (Used in both forms) */
+input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(0, 109, 119, 0.1);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    transition: 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: white;
+}
+
+/* =========================================
+   ACADEMIC SUPPORT SECTION
+   ========================================= */
+.services-Utkarsh {
+    padding: 100px 0;
+    background: transparent;
+}
+
+.Utkarsh-title {
+    font-size: 3rem;
+    font-family: 'Playfair Display', serif;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Container for alignment */
+.support-header {
+    display: flex;
+    align-items: center;
+    /* This centers the image vertically with the text */
+    justify-content: center;
+    gap: 40px;
+    margin: 60px auto;
+    max-width: 1100px;
+}
+
+/* Image styling */
+.support-image-box {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    /* Double check for internal alignment */
+}
+
+.support-side-img {
+    width: px;
+    /* Adjust size to your preference */
+    height: auto;
+    border-radius: 15px;
+    display: block;
+    /* Removes any baseline gap */
+}
+
+/* Text styling */
+.support-text-group {
+    text-align: left;
+}
+
+/* Ensure no extra margins are pushing text down */
+.support-text-group .Utkarsh-title {
+    margin: 0 0 10px 0;
+    font-size: 3rem;
+    line-height: 1.1;
+}
+
+.support-text-group .section-subtitle {
+    margin: 0;
+}
+
+/* Mobile: Stack them when screen is narrow */
+@media (max-width: 768px) {
+    .support-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .support-text-group {
+        text-align: center;
+    }
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #006D77, #3f958b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+.grid-3 {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.Utkarsh-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 380px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    padding: 40px 30px;
+    border-radius: 24px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+}
+
+.Utkarsh-card:hover {
+    transform: translateY(-15px);
+    background: white;
+    box-shadow: 0 25px 50px rgba(0, 109, 119, 0.15);
+}
+
+.icon-box {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-primary {
+    font-size: 3rem;
+    position: relative;
+    z-index: 2;
+}
+
+.glow-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--accent);
+    filter: blur(20px);
+    opacity: 0.3;
+    border-radius: 50%;
+}
+
+.card-footer {
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.tag {
+    background: var(--bg-light);
+    color: var(--primary);
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.schooling {
+    border-bottom: 4px solid #FF9F1C;
+}
+
+.languages {
+    border-bottom: 4px solid #2EC4B6;
+}
+
+.tech {
+    border-bottom: 4px solid #E71D36;
+}
+
+/* =========================================
+   TUTOR SECTION
+   ========================================= */
+.teacher-registration-section {
+    position: relative;
+    padding: 60px 0;
+    /* Adding a slightly darker green tint to separate this section */
+    background: rgba(0, 109, 119, 0.05);
+    backdrop-filter: blur(5px);
+    /* Softens the background image behind the form */
+    border-top: 1px solid rgba(0, 109, 119, 0.1);
+}
+
+.tutor-section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Center the Faculty Header */
+.teacher-info-centered {
+    text-align: center;
+    /* Centers the text */
+    width: 100%;
+    margin-bottom: 30px;
+    /* Reduced gap */
+}
+
+.teacher-info-centered h2 {
+    display: block;
+    margin: 0 auto 10px;
+    /* Centers the block itself */
+    font-size: 2.8rem;
+    /* Elegant size */
+}
+
+.teacher-info-centered p {
+    margin: 0 auto;
+    max-width: 600px;
+    /* Keeps the subtitle from being too wide */
+}
+
+/* REDUCING SECTION GAPS GLOBALLY */
+.teacher-registration-section {
+    padding: 40px 0 !important;
+    /* Tight spacing */
+}
+
+.tutor-form-compact {
+    margin-top: 0 !important;
+    /* Brings form closer to the title */
+}
+
+.field-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.field-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+/* 1. VIBRANT "BOOK FREE TRIAL" BUTTON */
+.btn-gradient {
+    width: 100%;
+    padding: 18px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    /* High-contrast gradient for "Eye Attracting" effect */
+    background: linear-gradient(135deg, #006D77 0%, #2EC4B6 100%);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(46, 196, 182, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-gradient:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(46, 196, 182, 0.4);
+    filter: brightness(1.1);
+}
+
+/* Subtle pulse to draw the eye without being annoying */
+.btn-gradient {
+    animation: buttonPulse 3s infinite;
+}
+
+@keyframes buttonPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(46, 196, 182, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(46, 196, 182, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(46, 196, 182, 0);
+    }
+}
+
+/* 2. REDUCING EMPTY SPACE (GAP FIX) */
+
+/* Tighten Hero Padding */
+.hero-elegant {
+    padding: 60px 0 !important;
+    /* Reduced from 120px */
+    min-height: auto !important;
+    /* Removes forced full-screen height */
+}
+
+/* Tighten Academic Support Padding */
+.services-Utkarsh {
+    padding: 50px 0 !important;
+    /* Reduced from 100px */
+}
+
+/* Tighten Teacher Section Padding */
+.teacher-registration-section {
+    padding: 40px 0 !important;
+    /* Reduced from 80px */
+    margin-top: 20px !important;
+    /* Reduced from 50px */
+}
+
+/* Reduce Space between Section Titles and Content */
+.section-header,
+.teacher-info-centered {
+    margin-bottom: 25px !important;
+    /* Reduced from 50px */
+}
+
+.Utkarsh-title {
+    margin-bottom: 5px !important;
+}
+
+
+/* =========================================
+    REFINED MOBILE OPTIMIZATION
+   ========================================= */
+@media (max-width: 768px) {
+
+    /* 1. Fix Background (Crucial for iOS) */
+    body {
+        background-attachment: scroll !important;
+        background-position: center center !important;
+
+    }
+
+    /* 2. THE TIMELINE FIX (The Line) */
+    .timeline {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0 !important;
+        padding: 20px 0 !important;
+    }
+
+    .step-line {
+        display: block !important;
+        visibility: visible !important;
+        width: 3px !important;
+        /* Thickness */
+        height: 60px !important;
+        /* Fixed Height */
+        min-height: 60px !important;
+        /* Force render */
+        /* Vertical gradient for elegant look */
+        background: linear-gradient(180deg, var(--accent) 0%, var(--primary) 100%) !important;
+        margin: 10px 0 !important;
+        opacity: 1 !important;
+        flex: none !important;
+        box-shadow: 0 0 8px rgba(131, 197, 190, 0.4);
+    }
+
+    .step {
+        width: 100% !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* 3. Scale down Typography */
+    .main-title {
+        font-size: 2.2rem !important;
+        text-align: center;
+    }
+
+    .Utkarsh-title {
+        font-size: 2rem !important;
+    }
+
+    /* 4. Layout Fixes */
+    .hero-split {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+
+    .grid-3 {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .Utkarsh-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: unset !important;
+    }
+
+    .glass-form {
+        width: 100% !important;
+        padding: 25px !important;
+    }
+
+    .whatsapp-float {
+        bottom: 20px !important;
+        right: 20px !important;
+    }
+}
+
+/* =========================================
+   RESPONSIVENESS
+   ========================================= */
+@media (max-width: 1024px) {
+    .hero-split {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .main-title {
+        font-size: 3rem;
+    }
+
+    .grid-3 {
+        flex-wrap: wrap;
+    }
+
+    .hero-description {
+        margin: 0 auto 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .glass-form {
+        width: 100%;
+        padding: 25px;
+    }
+
+    .Utkarsh-title {
+        font-size: 2.2rem;
+    }
+}
+
+/* Restoring the Teacher Section Layout */
+.teacher-registration-section {
+    position: relative;
+    padding: 80px 0;
+    z-index: 1;
+}
+
+.tutor-section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centers the whole block */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tutor-form-compact {
+    width: 100%;
+    max-width: 550px;
+    /* Limits width to keep it elegant */
+    margin: 0 auto;
+}
+
+.white-bg {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.field-group {
+    margin-bottom: 20px;
+    text-align: left;
+    /* Keeps labels and inputs aligned left */
+}
+
+.field-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.field-group input {
+    width: 100% !important;
+    /* Forces full width line-by-line */
+    display: block;
+    padding: 14px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+/* BIG & BOLD REGISTER BUTTON */
+.gradient-btn {
+    width: 100%;
+    padding: 20px;
+    /* More height for the button */
+    font-size: 1rem !important;
+    /* MUCH larger text */
+    font-weight: 800;
+    /* Extra bold */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* Professional spacing */
+    color: white;
+    background: linear-gradient(135deg, #006D77 0%, #2EC4B6 100%);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 109, 119, 0.2);
+    margin-top: 15px;
+}
+
+.gradient-btn:hover {
+    transform: scale(1.01);
+    /* Subtle grow effect */
+    filter: brightness(1.1);
+    box-shadow: 0 15px 30px rgba(0, 109, 119, 0.3);
+}
+
+/* REDUCING SECTION GAPS GLOBALLY */
+.teacher-registration-section {
+    padding: 40px 0 !important;
+    /* Tight spacing */
+}
+
+.tutor-form-compact {
+    margin-top: 0 !important;
+    /* Brings form closer to the title */
+}
+
+/* Tighten the input stack to avoid vertical gaps */
+.input-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    /* Small consistent gap between fields */
+}
+
+.input-stack input {
+    margin-bottom: 0 !important;
+    /* Remove old margins */
+    padding: 12px 15px;
+    font-size: 0.95rem;
+}
+
+.glass-form {
+    padding: 30px 35px !important;
+    /* Slightly more compact padding */
+    width: 420px;
+}
+
+/* Ensure the form title and subtitle are close together */
+.form-header h3 {
+    margin-bottom: 2px !important;
+}
+
+.form-header p {
+    margin-bottom: 18px !important;
+}
+
+/* Big Button Fix for Hero Section */
+.hero-elegant .btn-gradient {
+    margin-top: 10px;
+    padding: 14px;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+/* Elegant Reveal Physics */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.2s cubic-bezier(0.215, 0.61, 0.355, 1),
+        transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+    will-change: transform, opacity;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered Card Entrance */
+.Utkarsh-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.Utkarsh-card.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Subtle Hover Lift for Cards */
+.Utkarsh-card:hover {
+    transform: translateY(-12px) scale(1.02) !important;
+    transition: all 0.4s ease;
+}
+
+/* Smooth Scroll behavior for the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- 1. How It Works Styles --- */
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px 0;
+    gap: 20px;
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.step-num {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border: 2px solid var(--accent);
+    color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-weight: 800;
+    font-size: 1.2rem;
+    box-shadow: 0 5px 15px rgba(0, 109, 119, 0.1);
+}
+
+.step-line {
+    flex: 0.5;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--primary));
+    margin-top: 30px;
+    opacity: 0.4;
+}
+
+/* --- 3. Subject Cloud Styles --- */
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 0;
+}
+
+.subject-tag {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--accent);
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    color: var(--primary);
+    cursor: default;
+    transition: all 0.3s ease;
+}
+
+.subject-tag:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 109, 119, 0.2);
+}
+
+/* --- Authentic WhatsApp Styling --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    /* Official WhatsApp Green */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    z-index: 3000;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Soft Ringing Animation */
+    animation: wa-bounce 2s infinite;
+}
+
+.wa-icon-official {
+    width: 50px;
+    /* Perfect sizing */
+    height: 50px;
+}
+
+/* Tooltip Styling */
+.wa-tooltip {
+    position: absolute;
+    right: 75px;
+    background: #075E54;
+    /* Darker WhatsApp Teal */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    transition: 0.3s ease;
+    pointer-events: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    /* animation: -waves 2s infinite; */
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #128C7E;
+    /* Hover Green */
+}
+
+.whatsapp-float:hover .wa-tooltip {
+    opacity: 1;
+    right: 70px;
+}
+
+/* Subtle attention-grabbing bounce */
+@keyframes wa-bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+    }
+
+    .wa-icon-official {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Apply the elegant focus effect to the Tutor Form */
+.tutor-form-compact input {
+    transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    border: 1.5px solid rgba(0, 109, 119, 0.1);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.tutor-form-compact input:focus {
+    outline: none;
+    border-color: var(--primary) !important;
+    background: #ffffff !important;
+    /* This creates that soft "glow" effect you see in the class field */
+    box-shadow: 0 0 15px rgba(0, 109, 119, 0.15);
+    transform: translateY(-1px);
+    /* Subtle lift on focus */
+}
+
+/* Also apply it to the label color change for a professional touch */
+.field-group:focus-within label {
+    color: var(--primary);
+    transform: translateX(3px);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .tutor-form-compact input:focus {
+        font-size: 16px;
+        /* Prevents auto-zoom on iPhones when clicking a field */
+    }
+}
+
+/* --- Bouncing Call Button --- */
+.call-float-bounce {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    /* Positioned on the left for symmetry */
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #004e78 0%, #008ccd 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    box-shadow: 0 10px 25px rgba(0, 48, 73, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    /* The Bounce Animation */
+    animation: bounce-effect 2s infinite;
+}
+
+.call-btn-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* Turns the black icon into white */
+}
+
+/* Hover State: Pauses animation and lifts slightly */
+/* .call-float-bounce:hover {
+    animation-play-state: paused;
+    transform: scale(1.1) translateY(-5px);
+    background-color: #001f2d;
+} */
+
+/* Keyframes for the Bounce */
+@keyframes bounce-effect {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Mobile Fixes */
+@media (max-width: 768px) {
+    .call-float-bounce {
+        bottom: 20px;
+        left: 20px;
+        width: 55px;
+        height: 55px;
+    }
+
+    .call-img {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* --- Infinite Circular Testimonials --- */
+.testimonials-section {
+    padding: 80px 0;
+    overflow: hidden;
+    /* Important: hides cards outside the viewport */
+    background: rgba(237, 246, 249, 0.4);
+}
+
+.marquee-wrapper {
+    display: flex;
+    width: 100%;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-content {
+    display: flex;
+    gap: 30px;
+    padding: 20px 0;
+    /* The animation duration (30s) controls the speed */
+    animation: circular-loop 30s linear infinite;
+}
+
+.testimonial-card {
+    min-width: 350px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 109, 119, 0.05);
+}
+
+.testimonial-card .quote {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.testimonial-card .author {
+    border-top: 1px solid rgba(0, 109, 119, 0.1);
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.author strong {
+    color: var(--primary);
+}
+
+.author span {
+    font-size: 0.8rem;
+    color: #777;
+}
+
+/* Pause on hover so people can actually read a specific quote */
+.marquee-wrapper:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+/* THE LOOP KEYFRAMES */
+@keyframes circular-loop {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+
+    /* We move -50% because the second half is a duplicate of the first */
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    .testimonial-card {
+        min-width: 280px;
+    }
+}
+
+/* --- FAQ Layout --- */
+.faq-modern {
+    padding: 80px 0;
+    background: transparent;
+}
+
+.faq-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* --- Sidebar Styling --- */
+.pill-badge-Utkarsh {
+    background: var(--primary);
+    color: white;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.whatsapp-card-modern {
+    margin-top: 40px;
+    padding: 25px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 109, 119, 0.1);
+    border-left: 5px solid #25D366;
+}
+
+.whatsapp-card-modern p {
+    margin: 0 0 10px 0;
+    font-weight: 600;
+    color: #555;
+}
+
+.wa-action-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #075E54;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.wa-dot-pulse {
+    width: 10px;
+    height: 10px;
+    background: #25D366;
+    border-radius: 50%;
+    position: relative;
+}
+
+.wa-dot-pulse::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #25D366;
+    border-radius: 50%;
+    animation: wa-ripple 1.5s infinite;
+}
+
+@keyframes wa-ripple {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+/* --- Elegant FAQ Containers --- */
+.faq-glass-box {
+    background: #ffffff;
+    border: 1px solid #d5e7f9;
+    /* Very faint border */
+    border-radius: 12px;
+    margin-bottom: 16px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+}
+
+/* Elevate on Hover */
+.faq-glass-box:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 109, 119, 0.06);
+}
+
+.faq-trigger {
+    width: 100%;
+    padding: 24px 30px;
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.faq-number {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--primary);
+    margin-right: 20px;
+    font-size: 1.1rem;
+    opacity: 0.5;
+}
+
+.faq-text {
+    flex: 1;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+}
+
+/* --- The Elegant Plus-to-Minus Morph --- */
+.toggle-icon {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.toggle-icon::before,
+.toggle-icon::after {
+    content: '';
+    position: absolute;
+    background: var(--primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Horizontal line */
+.toggle-icon::before {
+    width: 14px;
+    height: 2px;
+    top: 11px;
+    left: 5px;
+}
+
+/* Vertical line */
+.toggle-icon::after {
+    width: 2px;
+    height: 14px;
+    left: 11px;
+    top: 5px;
+}
+
+/* --- Smooth Answer Animation --- */
+.faq-panel {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.4s ease,
+        visibility 0.4s;
+}
+
+.panel-inner {
+    padding: 0 30px 28px 75px;
+    /* Aligned beautifully under the text */
+    color: #5a6072;
+    font-size: 1rem;
+    line-height: 1.7;
+    transform: translateY(10px);
+    transition: transform 0.5s ease;
+}
+
+/* --- Active State Logic --- */
+.faq-glass-box.active {
+    border-color: var(--primary);
+    box-shadow: 0 15px 40px rgba(0, 109, 119, 0.08);
+}
+
+.faq-glass-box.active .faq-panel {
+    max-height: 500px;
+    /* High enough to contain content */
+    opacity: 1;
+    visibility: visible;
+}
+
+.faq-glass-box.active .panel-inner {
+    transform: translateY(0);
+}
+
+/* Icon Morphs into a Minus and rotates slightly */
+.faq-glass-box.active .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.faq-glass-box.active .toggle-icon::after {
+    transform: scaleY(0);
+    /* Vertical line disappears */
+    opacity: 0;
+}
+
+@media (max-width: 768px) {
+    .faq-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-sticky-side {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .wa-action-link {
+        justify-content: center;
+    }
+}
+
+/* --- Mobile Centering & Reordering --- */
+@media (max-width: 768px) {
+    .faq-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Centers items horizontally */
+        gap: 30px;
+    }
+
+    .faq-sticky-side {
+        display: contents;
+        /* Allows reordering of children */
+    }
+
+    .faq-title-group {
+        order: 1;
+        text-align: center;
+    }
+
+    .faq-accordion {
+        order: 2;
+        width: 100%;
+    }
+
+    .whatsapp-card-modern {
+        order: 3;
+        /* Moves to the very bottom */
+        width: 90%;
+        max-width: 350px;
+        margin: 10px auto 0 auto;
+
+        /* Centering content inside the card */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        background: white;
+        padding: 25px;
+        border-radius: 20px;
+        border-left: none;
+        border-top: 4px solid #25D366;
+        box-shadow: 0 10px 25px rgba(0, 109, 119, 0.1);
+    }
+
+    .wa-action-link {
+        justify-content: center;
+        margin-top: 5px;
+    }
+}
+
+/* --- WhatsApp Icon & Animation --- */
+.wa-icon-container {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wa-btn-svg {
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+/* The Pulse Effect behind the Icon */
+.wa-ping-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #25D366;
+    border-radius: 50%;
+    z-index: 1;
+    animation: wa-ripple-effect 2s infinite;
+}
+
+@keyframes wa-ripple-effect {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+/* --- Mobile Centering & Reordering --- */
+@media (max-width: 768px) {
+    .faq-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Centers items horizontally */
+        gap: 30px;
+    }
+
+    .faq-sticky-side {
+        display: contents;
+        /* Allows reordering of children */
+    }
+
+    .faq-title-group {
+        order: 1;
+        text-align: center;
+    }
+
+    .faq-accordion {
+        order: 2;
+        width: 100%;
+    }
+
+    .support-side-img {
+        width: 200px;
+        /* Smaller on mobile */
+    }
+
+    .whatsapp-card-modern {
+        order: 3;
+        /* Moves to the very bottom */
+        width: 90%;
+        max-width: 350px;
+        margin: 10px auto 0 auto;
+
+        /* Centering content inside the card */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        background: white;
+        padding: 25px;
+        border-radius: 20px;
+        border-left: none;
+        border-top: 4px solid #25D366;
+        box-shadow: 0 10px 25px rgba(0, 109, 119, 0.1);
+    }
+
+    .wa-action-link {
+        justify-content: center;
+        margin-top: 5px;
+    }
+}
+
+/* Container for the image to keep it centered and sized correctly */
+.card-image-wrap {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px auto;
+    /* Centers the image and adds space below */
+    overflow: hidden;
+    border-radius: 50%;
+    /* Makes the image a circle */
+    border: 2px solid var(--accent);
+    /* Adds a soft ring around the image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The actual image styling */
+.card-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures the image fills the circle without stretching */
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for elegance */
+.Utkarsh-card:hover .card-icon-img {
+    transform: scale(1.1);
+    /* Subtle zoom when hovering over the card */
+}
+
+/* Adjust card text alignment if needed */
+.Utkarsh-card {
+    text-align: center;
+    padding: 40px 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Updated Card Styling with Colorful Lines --- */
+
+.Utkarsh-card {
+    position: relative;
+    /* Required to position the line */
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    /* Ensures the colorful line stays within the rounded corners */
+    text-align: center;
+}
+
+/* The Colorful Line at the bottom */
+.Utkarsh-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    /* Thickness of the line */
+    /* A vibrant gradient using your brand colors */
+    background: linear-gradient(to right, var(--primary), var(--accent), #25D366);
+    transition: height 0.3s ease;
+    /* Animation effect for hover */
+}
+
+/* Hover Effect: The line grows slightly for a "Lift" feel */
+.Utkarsh-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 109, 119, 0.1);
+}
+
+.Utkarsh-card:hover::after {
+    height: 8px;
+    /* The line gets thicker when you hover over the card */
+}
+
+/* If you have images in the cards, make sure they sit above the background */
+.card-image-wrap {
+    position: relative;
+    z-index: 2;
+}
+
+/* --- Why Choose Us Section --- */
+.why-choose-us {
+    padding: 60px 0;
+    background: #ffffff;
+}
+
+/* Center the section title at the top */
+.why-choose-us .Utkarsh-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 3rem;
+}
+
+/* Wrapper for the image and text below the heading */
+.why-choose-content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Image on the Left */
+.why-choose-image {
+    flex: 1;
+    max-width: 450px;
+}
+
+.side-img-Utkarsh {
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(0, 109, 119, 0.12);
+}
+
+/* Text on the Right */
+.why-choose-text {
+    flex: 1.2;
+}
+
+.feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.feature-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--primary);
+    border-radius: 50%;
+    margin-top: 8px;
+    flex-shrink: 0;
+}
+
+.feature-item p {
+    margin: 0;
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.5;
+}
+
+/* --- Mobile View --- */
+@media (max-width: 768px) {
+    .why-choose-content-wrapper {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .why-choose-image {
+        max-width: 100%;
+        order: 1;
+        /* Image appears first on mobile */
+    }
+
+    .why-choose-text {
+        order: 2;
+    }
+
+    .feature-item {
+        text-align: left;
+    }
+
+    .why-choose-us .Utkarsh-title {
+        font-size: 2.2rem !important;
+    }
+}
+
+/* --- Modern Journey Path Styling --- */
+.journey-path-section {
+    padding: 100px 0;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.path-container {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    margin-top: 60px;
+}
+
+.path-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+}
+
+/* Zig-Zag Effect */
+.path-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.path-image-wrapper {
+    position: relative;
+    flex: 1;
+    max-width: 480px;
+}
+
+.path-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50px 15px 50px 15px;
+    /* Architectural corners */
+    box-shadow: 25px 25px 50px rgba(0, 109, 119, 0.1);
+}
+
+.path-number-float {
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    font-size: 9rem;
+    font-weight: 900;
+    color: rgba(0, 109, 119, 0.04);
+    /* Very faint background number */
+    font-family: 'Playfair Display', serif;
+    z-index: -1;
+}
+
+.path-text {
+    flex: 1;
+    max-width: 450px;
+}
+
+.path-text h3 {
+    font-size: 2.2rem;
+    color: var(--primary);
+    /* Your Teal color */
+    margin-bottom: 15px;
+}
+
+.path-text p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* --- Scroll Reveal Animation States --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== Directional Reveal Animations ===== */
+
+/* LEFT animation for glass text section */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-80px);
+    transition: all 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* RIGHT animation for form */
+.reveal-right {
+    opacity: 0;
+    transform: translateX(80px);
+    transition: all 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+
+    .path-item,
+    .path-item.reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .path-number-float {
+        left: 50%;
+        transform: translateX(-50%);
+        top: -30px;
+        font-size: 6rem;
+    }
+}
+
+/* --- Trending Subjects Section --- */
+.trending-subjects {
+    padding: 60px 0;
+    background: #ffffff;
+}
+
+/* Fancy Header & Subtitle */
+.trending-header {
+    margin-bottom: 40px;
+}
+
+.fancy-subtitle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: -5px;
+}
+
+.fancy-subtitle {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 700;
+    color: #006D77;
+    /* Your Teal Color */
+    margin: 0;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #ff4d4d;
+    /* Live Red */
+    border-radius: 50%;
+    position: relative;
+}
+
+.pulse-dot::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: 50%;
+    animation: pulse-glow 1.8s infinite;
+}
+
+@keyframes pulse-glow {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(3.5);
+        opacity: 0;
+    }
+}
+
+.accent-line {
+    height: 1px;
+    flex-grow: 1;
+    background: linear-gradient(to right, rgba(0, 109, 119, 0.4), transparent);
+    max-width: 200px;
+}
+
+/* Compact Image Grid */
+.compact-subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.subject-tile {
+    position: relative;
+    height: 160px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.tile-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 40, 45, 0.85), rgba(0, 109, 119, 0.2));
+    transition: opacity 0.3s ease;
+}
+
+.tile-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    z-index: 2;
+    color: white;
+}
+
+.tile-content h4 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.tile-content span {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.new-tag {
+    background: #ffcc00;
+    color: #000;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 800;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+/* Hover States */
+.subject-tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 60, 65, 0.2);
+}
+
+.subject-tile:hover .tile-overlay {
+    background: linear-gradient(to top, rgba(0, 109, 119, 0.95), rgba(0, 109, 119, 0.4));
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .compact-subjects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 per row on phones */
+        gap: 12px;
+    }
+
+    .subject-tile {
+        height: 130px;
+    }
+
+    .accent-line {
+        display: none;
+    }
+
+    .fancy-subtitle {
+        font-size: 0.75rem;
+        letter-spacing: 1.5px;
+    }
+}
+
+/* style.css */
+
+/* style.css */
+
+/* style.css */
+
+@media (min-width: 744px) {
+    
+    /* 1. Main container setup */
+    .hero-custom-mobile-layout {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        min-height: 400px; /* Reduced height */
+    }
+
+    /* 2. Compact Text Box (Smaller and Static) */
+    .hero-text-group {
+        flex: 0 0 600px; /* Much smaller fixed width */
+        z-index: 10;
+        position: relative;
+        padding: 30px !important;
+        margin-top: 50px;
+        
+        /* Glass effect */
+        background: rgba(255, 255, 255, 0.4) !important;
+        backdrop-filter: blur(15px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+        border-radius: 20px;
+        
+        /* REMOVE ANIMATION/TRANSLATION */
+        transform: none !important; 
+        transition: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* 3. Static Image on the Right (No movement) */
+    .hero-image-overlay {
+        position: absolute;
+        right: 0; /* Anchored to the right edge */
+        top: 50%;
+        /* right: -20%; */
+        transform: translateY(-50%) !important; /* Only centers it vertically, no horizontal movement */
+        width: 550px; /* Smaller image size */
+        z-index: -1; /* Behind the glass card */
+        
+        /* REMOVE ANIMATION/TRANSLATION */
+        margin: 0 !important;
+        transition: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .hero-image-overlay img {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        /* Force no translate animation */
+        transform: none !important; 
+        transition: none !important;
+    }
+
+    /* 4. Font size refinements for the smaller box */
+    .hero-text-group .main-title {
+        font-size: 3.2rem !important; 
+        line-height: 1.1;
+        white-space: normal !important; /* Allow wrapping on desktop for the box size */
+    }
+
+    .hero-text-group .serif-italic {
+        font-size: 3.0rem !important;
+    }
+
+    .hero-text-group .hero-description {
+        font-size: 1.1rem !important;
+        max-width: 450px !important;
+        margin-top: 15px !important;
+    }
+}
+
+/* LAPTOP / DESKTOP STYLING (Wider than 1024px) */
+@media (min-width: 1024px) {
+    
+    /* 1. Main container setup */
+    .hero-custom-mobile-layout {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        min-height: 400px; /* Reduced height */
+    }
+
+    /* 2. Compact Text Box (Smaller and Static) */
+    .hero-text-group {
+        flex: 0 0 600px; /* Much smaller fixed width */
+        z-index: 10;
+        position: relative;
+        padding: 30px !important;
+        margin-top: 50px;
+        
+        /* Glass effect */
+        background: rgba(255, 255, 255, 0.4) !important;
+        backdrop-filter: blur(15px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+        border-radius: 20px;
+        
+        /* REMOVE ANIMATION/TRANSLATION */
+        transform: none !important; 
+        transition: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* 3. Static Image on the Right (No movement) */
+    .hero-image-overlay {
+        position: absolute;
+        right: 0; /* Anchored to the right edge */
+        top: 50%;
+        right: -20%;
+        transform: translateY(-50%) !important; /* Only centers it vertically, no horizontal movement */
+        width: 550px; /* Smaller image size */
+        z-index: -1; /* Behind the glass card */
+        
+        /* REMOVE ANIMATION/TRANSLATION */
+        margin: 0 !important;
+        transition: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .hero-image-overlay img {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        /* Force no translate animation */
+        transform: none !important; 
+        transition: none !important;
+    }
+
+    /* 4. Font size refinements for the smaller box */
+    .hero-text-group .main-title {
+        font-size: 3.2rem !important; 
+        line-height: 1.1;
+        white-space: normal !important; /* Allow wrapping on desktop for the box size */
+    }
+
+    .hero-text-group .serif-italic {
+        font-size: 3.0rem !important;
+    }
+
+    .hero-text-group .hero-description {
+        font-size: 1.1rem !important;
+        max-width: 450px !important;
+        margin-top: 15px !important;
+    }
+}
+
+/* --- UNIVERSAL NAV SETTINGS --- */
+.edu-nova-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.edu-nova-header {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+/* --- 1. UTILITY STRIP STYLING --- */
+.edu-nova-utility {
+    background: #fcfcfd;
+    border-bottom: 1px solid #f1f5f9;
+    padding: 10px 0;
+}
+
+.edu-nova-flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edu-nova-tagline {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.edu-nova-dot {
+    width: 6px;
+    height: 6px;
+    background: #3b82f6;
+    border-radius: 50%;
+}
+
+.edu-nova-top-link {
+    text-decoration: none;
+    color: #1e293b;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: 24px;
+    transition: color 0.3s;
+}
+
+.edu-nova-top-link i { color: #3b82f6; margin-right: 6px; }
+.edu-nova-top-link:hover { color: #3b82f6; }
+
+/* --- 2. MAIN NAV STYLING --- */
+.edu-nova-nav {
+    padding: 16px 0;
+}
+
+.edu-nova-nav-grid {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+}
+
+.edu-nova-logo-img {
+    height: 52px;
+    width: auto;
+    display: block;
+}
+
+.edu-nova-list {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+    padding-right: 20px;
+}
+
+.edu-nova-item {
+    text-decoration: none;
+    color: #475569;
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+/* Elegant Underline */
+.edu-nova-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #1e293b, #3b82f6);
+    transition: width 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.edu-nova-item:hover, .edu-nova-active {
+    color: #1e293b;
+}
+
+.edu-nova-item:hover::after, .edu-nova-active::after {
+    width: 100%;
+}
+
+/* --- 3. Utkarsh CTA BUTTON FIXED --- */
+.edu-nova-cta {
+    background: #1e293b; /* Set a solid base color */
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: #ffffff !important;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    
+    /* The Fix: Use inline-flex to prevent the button from 
+       stretching to the container height */
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    
+    gap: 10px;
+    box-shadow: 0 4px 14px 0 rgba(30, 41, 59, 0.25);
+    transition: all 0.3s ease;
+    white-space: nowrap; /* Prevents text jumping */
+    border: none;
+    cursor: pointer;
+}
+
+/* Ensure the icon is visible and sized right */
+.edu-nova-cta i { 
+    font-size: 0.75rem; 
+    transition: transform 0.3s ease; 
+}
+
+.edu-nova-cta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(30, 41, 59, 0.4);
+    /* Avoid changing background type on hover to prevent flickering */
+    filter: brightness(1.2); 
+}
+
+/* This creates the smooth sliding arrow effect */
+.edu-nova-cta:hover i { 
+    transform: translateX(4px); 
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 900px) {
+    .edu-nova-utility { display: none; }
+    .edu-nova-list { gap: 15px; }
+    .edu-nova-item { font-size: 0.8rem; }
+    .edu-nova-cta { padding: 10px 15px; font-size: 0.75rem; }
+}
+
+/* --- UPDATED RESPONSIVE LOGIC --- */
+
+/* 1. Hide mobile toggle by default */
+.edu-nova-mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #1e293b;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+}
+
+/* 2. Mobile Media Query (under 992px) */
+@media (max-width: 992px) {
+    .edu-nova-container {
+        padding: 0 15px;
+    }
+
+    /* Adjust Utility Strip */
+    .edu-nova-tagline { font-size: 0.65rem; }
+    .hide-mobile { display: none; }
+    .edu-nova-top-link { margin-left: 10px; font-size: 0.7rem; }
+
+    /* Fix Grid for Mobile */
+    .edu-nova-nav-grid {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Hide the Desktop Menu list */
+    .edu-nova-menu-area {
+        display: none; /* Hide standard list */
+    }
+
+    /* Optional: Show Toggle */
+    .edu-nova-mobile-toggle {
+        display: block;
+        order: 2;
+    }
+
+    .edu-nova-brand {
+        order: 1;
+    }
+
+    .edu-nova-action {
+        order: 3;
+    }
+
+    .edu-nova-logo-img {
+        height: 40px; /* Smaller logo for mobile */
+    }
+
+    .edu-nova-cta {
+        padding: 8px 15px;
+        font-size: 0.75rem;
+        gap: 5px;
+    }
+    
+    .edu-nova-cta i { display: none; } /* Hide arrow on small mobile to save space */
+}
+
+/* 3. Handling very small screens (under 480px) */
+@media (max-width: 480px) {
+    .edu-nova-tagline { display: none; } /* Show only phone number on tiny screens */
+    .edu-nova-flex-between { justify-content: center; }
+    
+    .edu-nova-cta {
+        padding: 6px 10px;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 992px) {
+    /* The Dialog Box - Optimized for Readability */
+    .edu-nova-menu-area {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        position: fixed;
+        top: -100%; 
+        left: 0;
+        width: 100%;
+        height: 55vh; 
+        
+        /* 1. INCREASED CONTRAST: Slightly darker glass */
+        background: rgba(255, 255, 255, 0.98); 
+        
+        /* 2. SELECTIVE BLUR: High intensity only behind the dialog */
+        backdrop-filter: blur(30px) saturate(200%);
+        -webkit-backdrop-filter: blur(30px) saturate(200%);
+        
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        
+        z-index: 2000;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 40px;
+        visibility: hidden;
+    }
+
+    .edu-nova-menu-area.is-open {
+        top: 0;
+        visibility: visible;
+    }
+
+    /* Professional Readable Typography */
+    .edu-nova-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+    }
+
+    .edu-nova-item {
+        font-size: 1.2rem;
+        font-weight: 700; /* Bolder for readability */
+        color: #0f172a;   /* Darkest Navy */
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        text-decoration: none;
+        
+        /* 3. TEXT DEPTH: Subtle shadow makes it stand out from blur */
+        text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+        
+        opacity: 0;
+        transform: translateY(15px);
+        transition: all 0.4s ease;
+    }
+
+    .edu-nova-menu-area.is-open .edu-nova-item {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* 4. SELECTIVE DIMMING: Dims only what is NOT the dialog */
+    .menu-overlay-active::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.3); /* Soft dimming */
+        z-index: 1999;
+        /* Note: We don't blur here so the dialog stands out more */
+    }
+
+    .edu-nova-mobile-toggle {
+        z-index: 2001;
+        background: #fff;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+}
+
+/* 5. WHATSAPP ABOVE EVERYTHING */
+.whatsapp-float, .floating-whatsapp {
+    z-index: 3000 !important;
+}
+
+/* Specific Fix for Mobile Menu Overlap */
+@media (max-width: 992px) {
+    /* Ensure the toggle button doesn't have a background that blocks text */
+    .edu-nova-mobile-toggle {
+        background: transparent !important; 
+        box-shadow: none !important;
+        position: relative;
+        z-index: 3001; /* Keep it above the menu to allow closing */
+    }
+
+    /* Add top padding to the list so it starts below the toggle/logo area */
+    .edu-nova-menu-area.is-open {
+        padding-top: 100px; /* Adjust this value if needed */
+        justify-content: flex-start; /* Aligns items from top instead of center */
+    }
+
+    /* Optional: If the "cross" is actually the button icon, 
+       make sure it has enough breathing room */
+    .edu-nova-list {
+        margin-top: 20px;
+    }
+}
+
+/* Extra safety for very small screens like iPhone SE */
+@media (max-width: 375px) {
+    .edu-nova-item {
+        font-size: 1rem; /* Slightly smaller text for tiny screens */
+        letter-spacing: 2px;
+    }
+}
+
+@media (hover: hover) {
+    .edu-nova-item:hover {
+        color: #1e293b;
+    }
+    .edu-nova-item:hover::after {
+        width: 100%;
+    }
+}
+
+/* ===== Stylish Text Appear Animation ===== */
+
+.hero-text-group h1,
+.hero-text-group p {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.hero-content-left.active h1 {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.9s ease;
+}
+
+.hero-content-left.active p {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.9s ease 0.25s;
+}
+
+/* ===== Journey Section Directional Animation ===== */
+
+/* Left side steps */
+.path-item.reveal {
+    transform: translateX(-100px);
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Right side steps */
+.path-item.reverse.reveal {
+    transform: translateX(100px);
+}
+
+/* When visible */
+.path-item.reveal.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* --- HEADER LOGO ANIMATION --- */
+.edu-nova-logo-img {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.8);
+    transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Triggered when the page loads or when the header is visible */
+.edu-nova-header.active .edu-nova-logo-img,
+body.loaded .edu-nova-logo-img {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+/* Teachers push-back — JS drives transform */
+.tutor-form-compact {
+  transition: transform .5s cubic-bezier(0.22,1,0.36,1), box-shadow .5s ease;
+  will-change: transform;
+}
+.index-request-a-call{
+  transition: transform .5s cubic-bezier(0.22,1,0.36,1), box-shadow .5s ease;
+  will-change: transform;
+}
+.contact-form-premium{
+  transition: transform .5s cubic-bezier(0.22,1,0.36,1), box-shadow .5s ease;
+  will-change: transform;
+}

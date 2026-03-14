@@ -1,0 +1,1091 @@
+/* =========================================
+   ROOT VARIABLES
+========================================= */
+:root {
+    --primary: #006d77;
+    --primary-dark: #004f56;
+    --accent: #83c5be;
+    --light-bg: #edf6f9;
+    --white: #ffffff;
+    --text-dark: #1c1c1c;
+    --text-light: #666;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.06);
+    --shadow-strong: 0 20px 50px rgba(0, 109, 119, 0.12);
+}
+
+/* =========================================
+   GLOBAL RESET
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--light-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* =========================================
+   ANNOUNCEMENT BAR
+========================================= */
+.announcement-bar {
+    background: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.8rem;
+    position: relative;
+    z-index: 10;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+/* --- UNIVERSAL NAV SETTINGS --- */
+.edu-nova-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.edu-nova-header {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+/* --- 1. UTILITY STRIP STYLING --- */
+.edu-nova-utility {
+    background: #fcfcfd;
+    border-bottom: 1px solid #f1f5f9;
+    padding: 10px 0;
+}
+
+.edu-nova-flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edu-nova-tagline {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.edu-nova-dot {
+    width: 6px;
+    height: 6px;
+    background: #3b82f6;
+    border-radius: 50%;
+}
+
+.edu-nova-top-link {
+    text-decoration: none;
+    color: #1e293b;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: 24px;
+    transition: color 0.3s;
+}
+
+.edu-nova-top-link i { color: #3b82f6; margin-right: 6px; }
+.edu-nova-top-link:hover { color: #3b82f6; }
+
+/* --- 2. MAIN NAV STYLING --- */
+.edu-nova-nav {
+    padding: 16px 0;
+}
+
+.edu-nova-nav-grid {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+}
+
+.edu-nova-logo-img {
+    height: 52px;
+    width: auto;
+    display: block;
+}
+
+.edu-nova-list {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+    padding-right: 20px;
+}
+
+.edu-nova-item {
+    text-decoration: none;
+    color: #475569;
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+/* Elegant Underline */
+.edu-nova-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #1e293b, #3b82f6);
+    transition: width 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.edu-nova-item:hover, .edu-nova-active {
+    color: #1e293b;
+}
+
+.edu-nova-item:hover::after, .edu-nova-active::after {
+    width: 100%;
+}
+
+/* --- 3. Utkarsh CTA BUTTON FIXED --- */
+.edu-nova-cta {
+    background: #1e293b; /* Set a solid base color */
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: #ffffff !important;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    
+    gap: 10px;
+    box-shadow: 0 4px 14px 0 rgba(30, 41, 59, 0.25);
+    transition: all 0.3s ease;
+    white-space: nowrap; /* Prevents text jumping */
+    border: none;
+    cursor: pointer;
+}
+
+/* Ensure the icon is visible and sized right */
+.edu-nova-cta i { 
+    font-size: 0.75rem; 
+    transition: transform 0.3s ease; 
+}
+
+.edu-nova-cta:hover {
+    /* FIX: Force the lift effect */
+    transform: translateY(-4px) !important; 
+    box-shadow: 0 8px 25px rgba(30, 41, 59, 0.4);
+    background: #1e293b; /* Solid color on hover prevents gradient flickering */
+    color: #ffffff;
+}
+
+/* This creates the smooth sliding arrow effect */
+.edu-nova-cta:hover i { 
+    transform: translateX(4px); 
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 900px) {
+    .edu-nova-utility { display: none; }
+    .edu-nova-list { gap: 15px; }
+    .edu-nova-item { font-size: 0.8rem; }
+    .edu-nova-cta { padding: 10px 15px; font-size: 0.75rem; }
+}
+
+/* --- UPDATED RESPONSIVE LOGIC --- */
+
+/* 1. Hide mobile toggle by default */
+.edu-nova-mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #1e293b;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+}
+
+/* 2. Mobile Media Query (under 992px) */
+@media (max-width: 992px) {
+    .edu-nova-container {
+        padding: 0 15px;
+    }
+
+    /* Adjust Utility Strip */
+    .edu-nova-tagline { font-size: 0.65rem; }
+    .hide-mobile { display: none; }
+    .edu-nova-top-link { margin-left: 10px; font-size: 0.7rem; }
+
+    /* Fix Grid for Mobile */
+    .edu-nova-nav-grid {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Hide the Desktop Menu list */
+    .edu-nova-menu-area {
+        display: none; /* Hide standard list */
+    }
+
+    /* Optional: Show Toggle */
+    .edu-nova-mobile-toggle {
+        display: block;
+        order: 2;
+    }
+
+    .edu-nova-brand {
+        order: 1;
+    }
+
+    .edu-nova-action {
+        order: 3;
+    }
+
+    .edu-nova-logo-img {
+        height: 40px; /* Smaller logo for mobile */
+    }
+
+    .edu-nova-cta {
+        padding: 8px 15px;
+        font-size: 0.75rem;
+        gap: 5px;
+    }
+    
+    .edu-nova-cta i { display: none; } /* Hide arrow on small mobile to save space */
+}
+
+/* 3. Handling very small screens (under 480px) */
+@media (max-width: 480px) {
+    .edu-nova-tagline { display: none; } /* Show only phone number on tiny screens */
+    .edu-nova-flex-between { justify-content: center; }
+    
+    .edu-nova-cta {
+        padding: 6px 10px;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 992px) {
+    /* The Dialog Box - Optimized for Readability */
+    .edu-nova-menu-area {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        position: fixed;
+        top: -100%; 
+        left: 0;
+        width: 100%;
+        height: 55vh; 
+        
+        /* 1. INCREASED CONTRAST: Slightly darker glass */
+        background: rgba(255, 255, 255, 0.98); 
+        
+        /* 2. SELECTIVE BLUR: High intensity only behind the dialog */
+        backdrop-filter: blur(30px) saturate(200%);
+        -webkit-backdrop-filter: blur(30px) saturate(200%);
+        
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        
+        z-index: 2000;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 40px;
+        visibility: hidden;
+    }
+
+    .edu-nova-menu-area.is-open {
+        top: 0;
+        visibility: visible;
+    }
+
+    /* Professional Readable Typography */
+    .edu-nova-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+    }
+
+    .edu-nova-item {
+        font-size: 1.2rem;
+        font-weight: 700; /* Bolder for readability */
+        color: #0f172a;   /* Darkest Navy */
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        text-decoration: none;
+        
+        /* 3. TEXT DEPTH: Subtle shadow makes it stand out from blur */
+        text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+        
+        opacity: 0;
+        transform: translateY(15px);
+        transition: all 0.4s ease;
+    }
+
+    .edu-nova-menu-area.is-open .edu-nova-item {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* 4. SELECTIVE DIMMING: Dims only what is NOT the dialog */
+    .menu-overlay-active::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.3); /* Soft dimming */
+        z-index: 1999;
+        /* Note: We don't blur here so the dialog stands out more */
+    }
+
+    .edu-nova-mobile-toggle {
+        z-index: 2001;
+        background: #fff;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+}
+
+/* 5. WHATSAPP ABOVE EVERYTHING */
+.whatsapp-float, .floating-whatsapp {
+    z-index: 3000 !important;
+}
+
+
+
+/* =========================================
+   HERO SECTION
+========================================= */
+/* =========================================
+   REFINED HERO SECTION
+========================================= */
+.student-hero {
+    padding: 40px 0 50px;
+    background: linear-gradient(90deg, #005f69, #00b9ca);
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Better content width + spacing */
+.student-hero .hero-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Badge refinement */
+.badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    color: #ffffff;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    margin-bottom: 30px;
+}
+
+/* Stronger heading hierarchy */
+.student-hero h1 {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 30px;
+}
+
+/* Elegant highlight */
+.highlight {
+    color: #83c5be;
+}
+
+/* Improved paragraph styling */
+.student-hero p {
+    font-size: 18px;
+    line-height: 1.7;
+    opacity: 0.95;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* Subtle divider line */
+.student-hero h1::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #83c5be;
+    margin: 30px auto 0;
+    border-radius: 4px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 992px) {
+    .student-hero {
+        padding: 100px 0;
+    }
+
+    .student-hero h1 {
+        font-size: 36px;
+    }
+
+    .student-hero p {
+        font-size: 16px;
+    }
+}
+
+/* =========================================
+   FORM SECTION
+========================================= */
+.form-section {
+    padding: 90px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+/* =========================================
+   BENEFITS PANEL
+========================================= */
+.benefits-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.benefit-card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-strong);
+}
+
+.benefit-card .icon {
+    font-size: 28px;
+}
+
+.benefit-card h3 {
+    margin-bottom: 6px;
+}
+
+.benefit-card p {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+/* ===== Stylish Benefit Card Hover Animation ===== */
+
+.benefit-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* soft glow background */
+.benefit-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(131,197,190,0.25), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    border-radius: inherit;
+}
+
+/* hover effect */
+.benefit-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(0,109,119,0.18);
+}
+
+/* glow appears */
+.benefit-card:hover::before {
+    opacity: 1;
+}
+
+/* icon animation */
+.benefit-card .icon {
+    transition: transform 0.35s ease;
+}
+
+.benefit-card:hover .icon {
+    transform: scale(1.25) rotate(-5deg);
+}
+
+/* text slight slide */
+.benefit-card h3,
+.benefit-card p {
+    transition: transform 0.35s ease;
+}
+
+.benefit-card:hover h3,
+.benefit-card:hover p {
+    transform: translateX(5px);
+}
+
+/* =========================================
+   ADVANCED BENEFIT CARD HOVER EFFECT
+   ========================================= */
+
+/* Smooth border glow */
+.benefit-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 2px solid transparent;
+    background: linear-gradient(120deg, #83c5be, #006d77) border-box;
+    -webkit-mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.benefit-card:hover::after {
+    opacity: 1;
+}
+
+
+/* Icon glow pulse */
+.benefit-card:hover .icon {
+    text-shadow: 0 0 15px rgba(0,109,119,0.5);
+}
+
+
+/* subtle background shine animation */
+.benefit-card:hover::before {
+    animation: shineMove 1.2s ease;
+}
+
+@keyframes shineMove {
+    0% {
+        transform: translateX(-40%);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translateX(20%);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(60%);
+        opacity: 0;
+    }
+}
+
+
+/* icon bounce effect */
+.benefit-card:hover .icon {
+    animation: iconBounce 0.6s ease;
+}
+
+@keyframes iconBounce {
+    0% { transform: scale(1.2) rotate(-5deg); }
+    50% { transform: scale(1.35) rotate(3deg); }
+    100% { transform: scale(1.25) rotate(-5deg); }
+}
+
+
+/* slight text color highlight */
+.benefit-card:hover h3 {
+    color: var(--primary);
+}
+
+
+
+/* =========================================
+   ELEGANT ENROLLMENT CARD
+========================================= */
+.enrollment-card {
+    background: linear-gradient(145deg, #ffffff, #f7fbfb);
+    padding: 45px;
+    border-radius: 26px;
+    box-shadow: var(--shadow-strong);
+    position: relative;
+    overflow: hidden;
+}
+
+.enrollment-card::before {
+    content: "";
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(0,109,119,0.12), transparent 70%);
+    border-radius: 50%;
+}
+
+.enrollment-card h2 {
+    color: var(--primary);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.enrollment-card p {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+/* =========================================
+   FORM STYLING
+========================================= */
+.enrollment-form .form-group {
+    position: relative;
+    margin-bottom: 28px;
+    display: flex;
+    flex-direction: column;
+}
+
+.enrollment-form label {
+    font-size: 13px;
+    margin-bottom: 6px;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.enrollment-form input,
+.enrollment-form select {
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    transition: 0.3s ease;
+    font-family: inherit;
+}
+
+.enrollment-form input:focus,
+.enrollment-form select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(0,109,119,0.08);
+    outline: none;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, var(--primary), #008891);
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0,109,119,0.25);
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 35px rgba(0,109,119,0.35);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* =========================================
+   ANIMATION
+========================================= */
+.animate {
+    opacity: 0;
+    transform: translateY(25px);
+    animation: fadeUp 0.8s forwards ease;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   REMOVE ANIMATION FROM HEADER + TOP BAR
+========================================= */
+
+.announcement-bar,
+.edu-nova-header,
+.edu-nova-header * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 992px) {
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .student-hero h1 {
+        font-size: 32px;
+    }
+
+    .enrollment-card {
+        padding: 30px;
+    }
+}
+
+/* Specific Fix for Mobile Menu Overlap */
+@media (max-width: 992px) {
+    /* Ensure the toggle button doesn't have a background that blocks text */
+    .edu-nova-mobile-toggle {
+        background: transparent !important; 
+        box-shadow: none !important;
+        position: relative;
+        z-index: 3001; /* Keep it above the menu to allow closing */
+    }
+
+    /* Add top padding to the list so it starts below the toggle/logo area */
+    .edu-nova-menu-area.is-open {
+        padding-top: 100px; /* Adjust this value if needed */
+        justify-content: flex-start; /* Aligns items from top instead of center */
+    }
+
+    /* Optional: If the "cross" is actually the button icon, 
+       make sure it has enough breathing room */
+    .edu-nova-list {
+        margin-top: 20px;
+    }
+}
+
+/* Extra safety for very small screens like iPhone SE */
+@media (max-width: 375px) {
+    .edu-nova-item {
+        font-size: 1rem; /* Slightly smaller text for tiny screens */
+        letter-spacing: 2px;
+    }
+}
+
+/* --- Bouncing Call Button --- */
+.call-float-bounce {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    /* Positioned on the left for symmetry */
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #004e78 0%, #008ccd 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    box-shadow: 0 10px 25px rgba(0, 48, 73, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    /* The Bounce Animation */
+    animation: bounce-effect 2s infinite;
+}
+
+.call-btn-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* Turns the black icon into white */
+}
+
+/* Keyframes for the Bounce */
+@keyframes bounce-effect {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Mobile Fixes */
+@media (max-width: 768px) {
+    .call-float-bounce {
+        bottom: 20px;
+        left: 20px;
+        width: 55px;
+        height: 55px;
+    }
+
+    .call-img {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+
+/* --- Authentic WhatsApp Styling --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    /* Official WhatsApp Green */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    z-index: 3000;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Soft Ringing Animation */
+    animation: wa-bounce 2s infinite;
+}
+
+.wa-icon-official {
+    width: 50px;
+    /* Perfect sizing */
+    height: 50px;
+}
+
+/* Tooltip Styling */
+.wa-tooltip {
+    position: absolute;
+    right: 75px;
+    background: #075E54;
+    /* Darker WhatsApp Teal */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    transition: 0.3s ease;
+    pointer-events: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    /* animation: -waves 2s infinite; */
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #128C7E;
+    /* Hover Green */
+}
+
+.whatsapp-float:hover .wa-tooltip {
+    opacity: 1;
+    right: 70px;
+}
+
+/* Subtle attention-grabbing bounce */
+@keyframes wa-bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+    }
+
+    .wa-icon-official {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* --- HEADER LOGO ANIMATION --- */
+.edu-nova-logo-img {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.8);
+    transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Triggered when the page loads or when the header is visible */
+.edu-nova-header.active .edu-nova-logo-img,
+body.loaded .edu-nova-logo-img {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+/* --- FIXED LOGO ANIMATION --- */
+.edu-nova-logo-img {
+    opacity: 0 !important;
+    transform: rotate(-10deg) scale(0.8) !important;
+    transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    display: block !important;
+}
+
+/* This is triggered by script.js when the page finishes loading */
+body.loaded .edu-nova-logo-img {
+    opacity: 1 !important;
+    transform: rotate(0deg) scale(1) !important;
+}
+
+/* ===== Premium Announcement Bar ===== */
+
+.announcement-bar{
+    color:#e6f7f8;
+    width:100%;
+    background:linear-gradient(90deg,#004f56,#006D77,#0a9396);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:14px 20px;
+    box-shadow:0 4px 18px rgba(0,0,0,0.15);
+    position:relative;
+    z-index:999;
+}
+
+/* layout */
+.announcement-inner{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+/* brand container */
+.brand-highlight{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+/* animated dot */
+.brand-dot{
+    width:10px;
+    height:10px;
+    background:#2ec4b6;
+    border-radius:50%;
+    animation:pulseDot 2s infinite;
+}
+
+/* main name styling */
+.brand-name{
+    font-size:1.6rem;
+    font-weight:900;
+    background:linear-gradient(90deg,#ffffff,#bdeff2,#ffffff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:
+        0 0 6px rgba(255,255,255,0.4),
+        0 0 14px rgba(46,196,182,0.3);
+}
+
+/* secondary text */
+.announcement-text{
+    font-size:0.95rem;
+    opacity:0.95;
+    font-weight:500;
+}
+
+/* pulse animation */
+@keyframes pulseDot{
+    0%{transform:scale(1);opacity:1;}
+    50%{transform:scale(1.6);opacity:0.5;}
+    100%{transform:scale(1);opacity:1;}
+}
+
+/* slide entry animation */
+.announcement-bar{
+    animation:barReveal .7s ease;
+}
+
+@keyframes barReveal{
+    from{
+        transform:translateY(-100%);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+/* mobile */
+@media(max-width:768px){
+
+    .announcement-inner{
+        flex-direction:column;
+        gap:4px;
+    }
+
+    .brand-name{
+        font-size:1.25rem;
+    }
+
+    .announcement-text{
+        font-size:0.85rem;
+    }
+
+}

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us | Utkarsh Home Tuition</title>
+
+    <link rel="icon" href="Logo.png">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="premium-animations.css">
+    <link rel="stylesheet" href="contact.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="announcement-bar">
+    <div class="announcement-inner">
+
+        <div class="brand-highlight">
+            <span class="brand-dot"></span>
+            <span class="brand-name">Utkarsh Home Tuition</span>
+        </div>
+
+        <span class="announcement-text">
+            Personalized Learning for Every Student
+        </span>
+
+    </div>
+</div>
+
+    <header class="edu-nova-header">
+        <div class="edu-nova-utility">
+            <div class="edu-nova-container edu-nova-flex-between">
+                <div class="edu-nova-tagline">
+                    <span class="edu-nova-dot"></span> Excellence in Tutoring
+                </div>
+                <div class="edu-nova-social">
+                    <a href="tel:+918809492608" class="edu-nova-top-link">
+                        <i class="fas fa-phone"></i> <span>+91 8809492608</span>
+                    </a>
+                    <a href="mailto:contact@tuition.com" class="edu-nova-top-link hide-mobile">
+                        <i class="fas fa-envelope"></i> <span>contact@tuition.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <nav class="edu-nova-nav">
+            <div class="edu-nova-container edu-nova-nav-grid">
+                <div class="edu-nova-brand">
+                    <a href="index.html">
+                        <img src="Logo.png" alt="Logo" class="edu-nova-logo-img">
+                    </a>
+                </div>
+
+                <button class="edu-nova-mobile-toggle" aria-label="Toggle Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="edu-nova-menu-area">
+                    <ul class="edu-nova-list">
+                        <li><a href="index.html" class="edu-nova-item">Home</a></li>
+                        <li><a href="students.html" class="edu-nova-item">Students</a></li>
+                        <li><a href="teachers.html" class="edu-nova-item">Teachers</a></li>
+                        <li><a href="about.html" class="edu-nova-item">About Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="edu-nova-action">
+                    <a href="contact.html" class="edu-nova-cta ">
+                        Contact Us <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <section class="contact-premium">
+
+        <div class="container premium-grid">
+
+            <!-- LEFT SIDE CONTENT -->
+
+            <div class="contact-left reveal-left">
+
+                <div class="badge-pill">Utkarsh Home Tuition</div>
+
+                <h1 class="premium-title">
+                    Let's Build Your Child's
+                    <span>Academic Success</span>
+                </h1>
+
+                <p class="premium-sub">
+                    Connect with our academic advisors and find the perfect tutor.
+                    We help students unlock their true learning potential through
+                    personalized home tutoring.
+                </p>
+
+                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b" class="contact-image"
+                    alt="Student learning">
+
+                <div class="premium-cards">
+
+                    <a href="tel:+918809492608" class="contact-card">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>+91 8809492608</p>
+                        </div>
+                    </a>
+
+                    <a href="https://wa.me/918809492608" class="contact-card">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>Chat with advisor</p>
+                        </div>
+                    </a>
+
+                    <a href="mailto:contact@tuition.com" class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>contact@tuition.com</p>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT SIDE FORM -->
+
+            <div class="contact-form-premium reveal-right">
+
+                <h2>Request Free Consultation</h2>
+
+                <p class="form-subtitle">
+                    Fill the form and our academic advisor will contact you shortly.
+                </p>
+
+                <form id = "contactForm" action="https://api.web3forms.com/submit" method="POST">
+
+                    <!-- Web3Forms Key -->
+                    <input type="hidden" name="access_key" value="6e96ac62-dbba-4f57-a3ba-c9f58b5b5c61">
+                    <input type="hidden" name="redirect" value="https://arushgaur.github.io/Website/thank-contact.html">
+
+                    <!-- Subject -->
+                    <input type="hidden" name="subject" value="New Tuition Inquiry">
+
+                    <div class="form-row">
+
+                        <div class="input-box">
+                            <label>Student Name</label>
+                            <input type="text" name="student_name" placeholder="Enter student's full name" required>
+                        </div>
+
+                        <div class="input-box">
+                            <label>Phone Number</label>
+                            <input type="tel" name="phone" placeholder="Enter your phone number" required>
+                        </div>
+
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="input-box">
+                            <label>Class</label>
+                            <select name="class">
+                                <option value="">Select Class</option>
+                                <option>Class 1 - 5</option>
+                                <option>Class 6 - 8</option>
+                                <option>Class 9 - 10</option>
+                                <option>Class 11 - 12</option>
+                            </select>
+                        </div>
+
+                        <div class="input-box">
+                            <label>Subject Needed</label>
+                            <input type="text" name="subject_needed" placeholder="Example: Maths, Physics">
+                        </div>
+
+                    </div>
+
+                    <div class="input-group">
+                        <label>Email Address <span class="optional-text">(Optional)</span></label>
+                        <input type="email" name="email" placeholder="email@example.com">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Additional Message <span class="optional-text">(Optional)</span></label>
+                        <textarea name="message" rows="4"
+                            placeholder="Tell us more about your requirements..."></textarea>
+                    </div>
+
+                    <button type="submit" class="premium-btn">
+                        Send Request
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <a href="tel:+918809492608" class="call-float-bounce" aria-label="Call Us">
+        <img src="call.png" alt="Call" class="call-btn-icon">
+    </a>
+
+    <a href="https://wa.me/8809492608" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <span class="wa-tooltip">Chat with us</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"
+            class="wa-icon-official">
+    </a>
+
+    <script src="script.js"></script>
+    <script src="premium-animations.js"></script>
+</body>
+
+</html>

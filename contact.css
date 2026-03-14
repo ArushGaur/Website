@@ -1,0 +1,324 @@
+/* ---------- GLOBAL ---------- */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#ffffff;
+color:#333;
+}
+
+/* Container */
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:0 20px;
+}
+
+/* ---------- CONTACT SECTION ---------- */
+
+.contact-premium{
+padding:50px 0;
+background:linear-gradient(135deg,#f7fbfb,#ffffff);
+}
+
+.contact-form{
+padding:50px 0;
+background:linear-gradient(135deg,#f7fbfb,#ffffff);
+}
+
+/* Grid Layout */
+
+.premium-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:80px;
+align-items:start;
+}
+
+/* ---------- LEFT CONTENT ---------- */
+
+.badge-pill{
+display:inline-block;
+padding:6px 18px;
+border-radius:50px;
+background:rgba(0,109,119,0.08);
+color:#006D77;
+font-size:0.8rem;
+font-weight:600;
+letter-spacing:1px;
+margin-bottom:20px;
+}
+
+/* Heading */
+
+.premium-title{
+font-family:'Playfair Display',serif;
+font-size:3.2rem;
+line-height:1.2;
+color:#003d44;
+margin-bottom:20px;
+}
+
+.premium-title span{
+background:linear-gradient(90deg,#006D77,#2EC4B6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* Paragraph */
+
+.premium-sub{
+font-size:1.05rem;
+color:#555;
+line-height:1.7;
+max-width:520px;
+}
+
+/* ---------- CONTACT CARDS ---------- */
+
+.premium-cards{
+margin-top:40px;
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.contact-card{
+display:flex;
+align-items:center;
+gap:18px;
+padding:20px;
+background:#ffffff;
+border-radius:16px;
+text-decoration:none;
+box-shadow:0 12px 28px rgba(0,0,0,0.06);
+border:1px solid #f0f0f0;
+transition:all .3s ease;
+}
+
+.contact-card:hover{
+transform:translateY(-5px);
+box-shadow:0 20px 40px rgba(0,0,0,0.08);
+}
+
+.contact-card i{
+font-size:22px;
+color:#006D77;
+background:#e8f6f5;
+padding:12px;
+border-radius:10px;
+}
+
+.contact-card h4{
+font-size:1rem;
+color:#333;
+margin-bottom:2px;
+}
+
+.contact-card p{
+font-size:0.9rem;
+color:#777;
+}
+
+/* ---------- FORM SECTION ---------- */
+
+.contact-form-premium{
+background:white;
+padding:50px;
+border-radius:24px;
+box-shadow:0 35px 80px rgba(0,0,0,0.08);
+border:1px solid rgba(0,0,0,0.04);
+}
+
+.contact-form-premium h2{
+font-family:'Playfair Display',serif;
+font-size:1.8rem;
+margin-bottom:6px;
+color:#003d44;
+}
+
+.form-subtitle{
+font-size:0.9rem;
+color:#666;
+margin-bottom:25px;
+}
+
+/* ---------- FORM GRID ---------- */
+
+.form-row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+/* Input Groups */
+
+.input-box{
+margin-bottom:16px;
+}
+
+.input-box label{
+font-size:0.85rem;
+font-weight:600;
+color:#006D77;
+display:block;
+margin-bottom:5px;
+}
+
+.input-box input,
+.input-box select,
+.input-box textarea{
+width:100%;
+padding:14px;
+border-radius:10px;
+border:1px solid #e8eef0;
+font-family:'Poppins',sans-serif;
+font-size:0.95rem;
+background:#fbfdfe;
+transition:.25s;
+}
+
+.input-box input:focus,
+.input-box select:focus,
+.input-box textarea:focus{
+outline:none;
+border-color:#2EC4B6;
+box-shadow:0 0 0 3px rgba(46,196,182,0.12);
+background:white;
+}
+
+/* ---------- BUTTON ---------- */
+
+.premium-btn{
+width:100%;
+padding:16px;
+background:#006D77;
+border:none;
+border-radius:12px;
+color:white;
+font-size:1rem;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+.premium-btn:hover{
+background:#004d55;
+transform:translateY(-2px);
+}
+
+/* ---------- ANIMATIONS ---------- */
+
+.reveal-left{
+opacity:0;
+transform:translateX(-40px);
+animation:fadeSlide .8s forwards ease;
+}
+
+.reveal-right{
+opacity:0;
+transform:translateX(40px);
+animation:fadeSlide .8s .2s forwards ease;
+}
+
+@keyframes fadeSlide{
+to{
+opacity:1;
+transform:translateX(0);
+}
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+
+@media (max-width:992px){
+
+.premium-grid{
+grid-template-columns:1fr;
+gap:60px;
+}
+
+.premium-title{
+font-size:2.4rem;
+text-align:center;
+}
+
+.premium-sub{
+text-align:center;
+margin:auto;
+}
+
+.badge-pill{
+display:block;
+width:max-content;
+margin:0 auto 15px;
+}
+
+.premium-cards{
+align-items:center;
+}
+
+.form-row{
+grid-template-columns:1fr;
+}
+
+.contact-form-premium{
+padding:35px;
+}
+
+}
+
+.contact-image{
+width:100%;
+border-radius:18px;
+margin-top:30px;
+margin-bottom:20px;
+box-shadow:0 20px 50px rgba(0,0,0,0.08);
+}
+
+/* --- Email & Message Section Styling --- */
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #006D77;
+}
+
+/* Styling for the "(Optional)" text next to labels */
+.optional-text {
+    font-size: 0.75rem;
+    color: #999;
+    font-weight: 400;
+    margin-left: 5px;
+}
+
+.input-group input[type="email"], 
+.input-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 10px;
+    font-family: inherit;
+    background-color: #ffffff;
+    transition: border-color 0.3s ease;
+}
+
+/* Focus state to match your primary theme color */
+.input-group input[type="email"]:focus, 
+.input-group textarea:focus {
+    outline: none;
+    border-color: #2EC4B6;
+}
+
+/* Specific height for the message box */
+.input-group textarea {
+    resize: vertical; /* Allows user to expand vertically only */
+    min-height: 120px;
+}
+

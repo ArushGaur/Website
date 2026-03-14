@@ -1,0 +1,303 @@
+/* teacher.css */
+
+/* HERO SECTION - Original Palette */
+.teacher-hero {
+    padding: 30px 0 90px;
+    background: linear-gradient(135deg, #004d55 0%, #006d77 50%, #1a9388 100%);
+    color: white;
+    text-align: center;
+}
+
+.hero-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.15); /* Glass-like transparency */
+    backdrop-filter: blur(5px);
+    color: #ffffff;
+    padding: 8px 20px;
+    border-radius: 50px; /* Makes it a pill shape */
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 25px; /* Spacing above the main title */
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.hero-badge-pill i {
+    color: #83c5be; /* Matching your highlight color */
+    font-size: 1rem;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 3.8rem); line-height: 1.2; }
+.highlight { color: #83c5be; }
+.hero-desc { max-width: 700px; margin: 25px auto 0; opacity: 0.9; font-size: 1.1rem; padding: 0 20px; }
+
+/* MAIN SECTION GRID */
+.teacher-section { padding: 80px 0; background: #f0f7f8; }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.teacher-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 60px; 
+    align-items: center; 
+}
+
+/* REFINED LEFT CONTENT */
+.badge {
+    display: inline-block;
+    padding: 6px 15px;
+    background: rgba(0, 109, 119, 0.1);
+    color: #006d77;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.section-title { font-family: 'Playfair Display', serif; font-size: 3rem; color: #006d77; margin-bottom: 20px; line-height: 1.1; }
+.text-gradient { background: linear-gradient(to right, #006d77, #1a9388); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.section-intro { font-size: 1.1rem; color: #555; margin-bottom: 40px; }
+
+/* MODERN STEP CARDS */
+.modern-steps { display: flex; flex-direction: column; gap: 20px; }
+.step-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    transition: 0.3s;
+}
+.step-card:hover { transform: translateX(10px); box-shadow: 0 10px 25px rgba(0, 109, 119, 0.08); }
+
+.step-icon {
+    width: 50px; height: 50px;
+    background: #006d77;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+.step-text h4 { color: #006d77; margin-bottom: 3px; font-size: 1.1rem; }
+.step-text p { color: #777; font-size: 0.9rem; margin: 0; }
+
+/* FORM STYLING */
+.form-glass-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 30px 60px rgba(0, 77, 85, 0.12);
+}
+
+.form-header { text-align: center; margin-bottom: 30px; }
+.form-header h3 { font-family: 'Playfair Display', serif; color: #006d77; font-size: 1.8rem; }
+.form-header p { color: #777; font-size: 0.9rem; }
+
+.input-field { margin-bottom: 20px; }
+.input-field label { display: block; font-weight: 600; color: #006d77; margin-bottom: 8px; font-size: 0.85rem; }
+.input-field label i { margin-right: 10px; opacity: 0.7; }
+
+.input-field input {
+    width: 100%;
+    padding: 14px;
+    border: 1.5px solid #eef2f3;
+    border-radius: 12px;
+    font-family: inherit;
+    box-sizing: border-box;
+    transition: 0.3s;
+    background: #fcfdfe;
+}
+
+.input-field input:focus {
+    border-color: #006d77;
+    outline: none;
+    background: #fff;
+}
+
+.teacher-submit-btn {
+    width: 100%;
+    padding: 18px;
+    background: #006d77;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.teacher-submit-btn:hover { background: #004d55; transform: translateY(-2px); }
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+    .teacher-grid { grid-template-columns: 1fr; gap: 50px; }
+    .teacher-content-left { text-align: center; }
+    .step-card { text-align: left; }
+    .section-title { font-size: 2.5rem; }
+}
+
+@media (max-width: 480px) {
+    .form-glass-container { padding: 30px 20px; }
+    .hero-title { font-size: 2.2rem; }
+}
+
+/* --- Animation Definitions --- */
+
+/* Popup effect for Pill and Heading */
+.animate-popup {
+    opacity: 0;
+    animation: polyPopup 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* Slide up effect for Description */
+.animate-slide-up {
+    opacity: 0;
+    transform: translateY(30px); /* Starts below the heading */
+    animation: slideUpY 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    animation-delay: 0.6s; /* Waits for heading to appear first */
+}
+
+/* --- Keyframes --- */
+
+@keyframes polyPopup {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideUpY {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Updated Element Styles --- */
+
+.hero-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    color: #ffffff;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    margin-bottom: 15px; /* Spacing between heading and desc */
+}
+
+.hero-desc {
+    margin: 0 auto; /* Keeps it centered */
+    display: block; /* Ensures it stays below the heading */
+}
+
+/* --- Entrance Animations for Main Section --- */
+
+.animate-left {
+    opacity: 0;
+    transform: translateX(-50px); /* Starts from the left */
+    animation: slideInLeft 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    animation-delay: 0.8s; /* Appears after the Hero description */
+}
+
+.animate-right {
+    opacity: 0;
+    transform: translateX(50px); /* Starts from the right */
+    animation: slideInRight 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    animation-delay: 1s; /* Appears last for a staggered effect */
+}
+
+/* --- Keyframes --- */
+
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Ensure the grid doesn't cause a horizontal scrollbar during animation */
+.teacher-section {
+    overflow-x: hidden;
+}
+
+/* Optional: Subtle hover effect for the form to make it feel 'alive' */
+.form-glass-container {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.form-glass-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 40px 80px rgba(0, 77, 85, 0.18);
+}
+
+/* --- HEADER LOGO ANIMATION --- */
+.edu-nova-logo-img {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.8);
+    transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Triggered when the page loads or when the header is visible */
+.edu-nova-header.active .edu-nova-logo-img,
+body.loaded .edu-nova-logo-img {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
