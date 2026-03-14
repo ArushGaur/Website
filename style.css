@@ -393,6 +393,144 @@ input:focus {
     background: transparent;
 }
 
+/* --- Improved Academic Support Section --- */
+.benefit-section {
+    padding: 100px 0;
+    background-color: #fcfdfd; /* Very light premium tint */
+}
+
+.benefit-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.benefit-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.benefit-subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* Card Grid Layout */
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+/* Rectangular Card Design */
+.benefit-card {
+    background: #ffffff;
+    border-radius: 16px; /* Smooth rectangular corners */
+    overflow: hidden;
+    border: 1px solid rgba(0, 109, 119, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hover "Beautiful" Elevation */
+.benefit-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(0, 109, 119, 0.12);
+    border-color: var(--accent);
+}
+
+/* Larger Integrated Image Wrapper */
+.card-image-wrapper {
+    width: 100%;
+    height: 220px; /* Fixed rectangular height */
+    overflow: hidden;
+    background: var(--bg-light);
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills the rectangle */
+    transition: transform 0.8s ease;
+}
+
+.benefit-card:hover .card-image-wrapper img {
+    transform: scale(1.1); /* Subtle zoom effect */
+}
+
+/* Card Text Content */
+.card-content {
+    padding: 30px 25px;
+    text-align: left;
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.card-content p {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .benefit-title { font-size: 2.2rem; }
+    .benefit-grid { gap: 25px; }
+    .card-image-wrapper { height: 180px; }
+}
+
+/* --- Academic Support Section Animation --- */
+
+/* 1. Base State: Hidden and shifted down */
+.services-Utkarsh .Utkarsh-card {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform, opacity;
+}
+
+/* 2. Active State: Triggered by scroll (IntersectionObserver) */
+/* This selects cards inside the section when the section gets the .active class */
+.services-Utkarsh.reveal.active .Utkarsh-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 3. Staggered Entry: Cards appear one by one */
+.services-Utkarsh.reveal.active .Utkarsh-card:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.services-Utkarsh.reveal.active .Utkarsh-card:nth-child(2) {
+    transition-delay: 0.3s;
+}
+
+.services-Utkarsh.reveal.active .Utkarsh-card:nth-child(3) {
+    transition-delay: 0.5s;
+}
+
+/* 4. Optional: Header Reveal */
+.services-Utkarsh .section-header.reveal {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 1s ease-out;
+}
+
+.services-Utkarsh .section-header.reveal.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
 .Utkarsh-title {
     font-size: 3rem;
     font-family: 'Playfair Display', serif;
