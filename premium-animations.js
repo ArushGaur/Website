@@ -40,6 +40,7 @@
         <span></span><span></span><span></span>
       </div>`;
     document.body.prepend(loader);
+    document.body.classList.add('loader-active');
     lockScroll();
 
     const fill    = document.getElementById('loader-fill');
@@ -128,7 +129,10 @@
         loader.style.transition = 'opacity 0.45s ease';
         loader.style.opacity    = '0';
         loader.style.pointerEvents = 'none';
-        setTimeout(() => loader.remove(), 480);
+        setTimeout(() => {
+          loader.remove();
+          document.body.classList.remove('loader-active'); /* ← reveal float buttons */
+        }, 480);
 
         unlockScroll();
         document.body.classList.add('loaded');
@@ -243,7 +247,7 @@
     [
       '.reveal', '.about-hero', '.mission-item', '.process-step-item',
       '.philosophy-strip', '.grid-3', '.modern-features-grid',
-      '.process-section', 'footer'
+      '.process-section', '.animate-left', '.animate-right', 'footer'
     ].forEach(sel => {
       document.querySelectorAll(sel).forEach(el => io.observe(el));
     });
@@ -305,34 +309,42 @@
      9. TEACHERS FORM — PUSH-BACK
      ══════════════════════════════════════════════════════════ */
   function enableFormPushBack(selector) {
+    const form = document.querySelector(selector);
+    if (!form) return;
+    const isTouch  = window.matchMedia('(pointer:coarse)').matches;
+    const isMobile = window.matchMedia('(max-width:768px)').matches;
 
-  /* Disable on mobile and touch devices */
-  if (window.matchMedia("(max-width:768px)").matches) return;
-  if (window.matchMedia("(pointer:coarse)").matches) return;
-
-  const form = document.querySelector(selector);
-  if (!form) return;
-
-  form.addEventListener("mousemove", e => {
-
-    const r = form.getBoundingClientRect();
-
-    const nx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
-    const ny = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
-
-    form.style.transform =
-      `perspective(900px) rotateX(${-ny * 6}deg) rotateY(${nx * 8}deg) translateZ(-18px)`;
-
-    form.style.boxShadow =
-      `${-nx * 12}px ${ny * 10}px 50px rgba(0,77,85,0.18)`;
-  });
-
-  form.addEventListener("mouseleave", () => {
-    form.style.transform = "";
-    form.style.boxShadow = "";
-  });
-
-}
+    if (isMobile || isTouch) {
+      /* Touch: subtle lift on press */
+      form.addEventListener('touchstart', () => {
+        form.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
+        form.style.transform  = 'translateY(-4px)';
+        form.style.boxShadow  = '0 24px 60px rgba(58,12,163,0.22)';
+      }, { passive: true });
+      form.addEventListener('touchend', () => {
+        form.style.transition = 'transform 0.4s ease, box-shadow 0.4s ease';
+        form.style.transform  = '';
+        form.style.boxShadow  = '';
+      }, { passive: true });
+    } else {
+      /* Desktop: original 3D tilt */
+      form.addEventListener('mousemove', e => {
+        const r  = form.getBoundingClientRect();
+        const nx = (e.clientX - (r.left + r.width  / 2)) / (r.width  / 2);
+        const ny = (e.clientY - (r.top  + r.height / 2)) / (r.height / 2);
+        form.style.transition = 'transform 0.1s ease, box-shadow 0.1s ease';
+        form.style.transform  =
+          `perspective(900px) rotateX(${-ny * 6}deg) rotateY(${nx * 8}deg) translateZ(-18px)`;
+        form.style.boxShadow  =
+          `${-nx * 12}px ${ny * 10}px 50px rgba(58,12,163,0.22)`;
+      });
+      form.addEventListener('mouseleave', () => {
+        form.style.transition = 'transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.5s ease';
+        form.style.transform  = '';
+        form.style.boxShadow  = '';
+      });
+    }
+  }
 
 
   /* ══════════════════════════════════════════════════════════
@@ -445,8 +457,11 @@
     initPageLoad();
     initMagnetic();
     enableFormPushBack(".form-glass-container");
-enableFormPushBack(".index-request-a-call");
-enableFormPushBack(".tutor-form-compact");
+    enableFormPushBack(".index-request-a-call");
+    enableFormPushBack(".tutor-form-compact");
+    enableFormPushBack(".enrollment-card");
+    enableFormPushBack(".contact-form-premium");
+    enableFormPushBack(".hero-form-card");
     initRipple();
     initCountUp();
     initHeroCounter();
