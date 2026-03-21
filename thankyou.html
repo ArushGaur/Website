@@ -3,58 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You | Academy Excellence</title>
+    <title>Application Received | Utkarsh Home Tuition</title>
     <link rel="icon" type="image/png" href="Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="premium-animations.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        .thanks-container {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #edf6f9;
-            text-align: center;
-            padding: 20px;
+        .ty-page {
+            min-height: 80vh;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, #F5F6FF 0%, #EEE9FF 60%, #FFF3E8 100%);
+            padding: 60px 20px; position: relative; overflow: hidden;
         }
-        .thanks-card {
-            background: white;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 109, 119, 0.1);
-            border: 1px solid #83c5be;
-            max-width: 500px;
+        .ty-page::before {
+            content: ''; position: absolute; top: -100px; left: -100px;
+            width: 500px; height: 500px; border-radius: 50%;
+            background: rgba(58,12,163,.07); filter: blur(80px); pointer-events: none;
         }
-        .check-icon {
-            font-size: 60px;
-            color: #006d77;
-            margin-bottom: 20px;
+        .ty-card {
+            background: #fff; padding: 60px 48px; border-radius: 32px;
+            box-shadow: 0 32px 80px rgba(58,12,163,.14);
+            text-align: center; max-width: 560px; width: 100%;
+            position: relative; z-index: 1;
+            animation: cardPop .8s cubic-bezier(.175,.885,.32,1.275) both;
         }
-        h1 { color: #006d77; margin-bottom: 15px; }
-        p { color: #555; margin-bottom: 30px; line-height: 1.6; }
-        .back-btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: #006d77;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: 0.3s;
+        @keyframes cardPop { from{opacity:0;transform:scale(.88) translateY(30px);} to{opacity:1;transform:scale(1) translateY(0);} }
+        .ty-icon-ring {
+            width: 110px; height: 110px; border-radius: 50%;
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: #fff; font-size: 48px;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 28px;
+            box-shadow: 0 16px 40px rgba(16,185,129,.3);
+            animation: ringPop .7s .25s cubic-bezier(.34,1.56,.64,1) both;
         }
-        .back-btn:hover { background: #004d54; transform: translateY(-3px); }
+        @keyframes ringPop { from{transform:scale(0) rotate(-30deg);} to{transform:scale(1) rotate(0);} }
+        .ty-card h1 { font-family:'Playfair Display',serif; font-size:2.4rem; color:#3A0CA3; margin-bottom:14px; }
+        .ty-card > p { color:#4A4A6A; font-size:1.05rem; line-height:1.7; margin-bottom:28px; }
+        .ty-steps {
+            background: #F5F6FF; border-radius: 16px; padding: 24px 28px;
+            margin-bottom: 32px; text-align: left;
+            border-left: 4px solid #3A0CA3;
+        }
+        .ty-steps h4 { color:#3A0CA3; font-size:1rem; margin-bottom:12px; font-weight:700; }
+        .ty-steps ul { margin:0; padding-left:20px; color:#4A4A6A; font-size:.9rem; line-height:1.8; }
+        .ty-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: linear-gradient(135deg, #3A0CA3, #5A29E0);
+            color: #fff; text-decoration: none;
+            padding: 16px 36px; border-radius: 50px;
+            font-weight: 700; font-size: .95rem;
+            box-shadow: 0 10px 28px rgba(58,12,163,.3); transition: all .3s;
+        }
+        .ty-btn:hover { transform:translateY(-3px); box-shadow:0 16px 40px rgba(58,12,163,.4); }
+        .ty-divider { margin:32px 0 20px; border:none; border-top:1px solid #E4E6F5; }
+        .ty-tagline { font-size:.85rem; color:#8888AA; letter-spacing:.05em; }
+        .ty-tagline i { color:#FF6B00; margin-right:6px; }
+        @media(max-width:560px){ .ty-card{padding:36px 20px;} .ty-card h1{font-size:1.9rem;} .ty-icon-ring{width:88px;height:88px;font-size:36px;} }
     </style>
 </head>
 <body>
-    <div class="thanks-container">
-        <div class="thanks-card">
-            <div class="check-icon">✓</div>
-            <h1>Application Received!</h1>
-            <p>Thank you for reaching out to our Academy. One of our senior counselors will call you within the next 24 hours to schedule your free trial.</p>
-            <a href="index.html" class="back-btn">Return to Home</a>
+
+    <div class="announcement-bar">
+        <div class="announcement-inner">
+            <div class="brand-highlight">
+                <span class="brand-dot"></span>
+                <span class="brand-name">Utkarsh Home Tuition</span>
+            </div>
         </div>
     </div>
+
+    <header class="edu-nova-header">
+        <div class="edu-nova-utility">
+            <div class="edu-nova-container edu-nova-flex-between">
+                <div class="edu-nova-tagline"><span class="edu-nova-dot"></span> Excellence in Tutoring</div>
+                <div class="edu-nova-social">
+                    <a href="tel:+918809492608" class="edu-nova-top-link"><i class="fas fa-phone"></i> <span>+91 8809492608</span></a>
+                    <a href="/cdn-cgi/l/email-protection#afccc0c1dbceccdbefdbdac6dbc6c0c181ccc0c2" class="edu-nova-top-link hide-mobile"><i class="fas fa-envelope"></i> <span><span class="__cf_email__" data-cfemail="1e7d71706a7f7d6a5e6a6b776a777170307d7173">[email&#160;protected]</span></span></a>
+                </div>
+            </div>
+        </div>
+        <nav class="edu-nova-nav">
+            <div class="edu-nova-container edu-nova-nav-grid">
+                <div class="edu-nova-brand"><a href="index.html"><img src="Logo.png" alt="Logo" class="edu-nova-logo-img"></a></div>
+                <button class="edu-nova-mobile-toggle" aria-label="Toggle Menu"><i class="fas fa-bars"></i><i class="fas fa-times" style="display:none"></i></button>
+                <div class="edu-nova-menu-area">
+                    <ul class="edu-nova-list">
+                        <li><a href="index.html" class="edu-nova-item">Home</a></li>
+                        <li><a href="students.html" class="edu-nova-item">Students</a></li>
+                        <li><a href="teachers.html" class="edu-nova-item">Teachers</a></li>
+                        <li><a href="about.html" class="edu-nova-item">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="edu-nova-action"><a href="contact.html" class="edu-nova-cta">Contact Us <i class="fas fa-arrow-right"></i></a></div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="ty-page">
+        <div class="ty-card">
+            <div class="ty-icon-ring">
+                <i class="fas fa-check"></i>
+            </div>
+            <h1>Application Received!</h1>
+            <p>Thank you for enrolling with <strong style="color:#FF6B00;">Utkarsh Home Tuition</strong>. One of our senior counselors will call you within 24 hours to schedule your free demo session.</p>
+            <div class="ty-steps">
+                <h4>What happens next?</h4>
+                <ul>
+                    <li>Our counselor will call you within 24 hours.</li>
+                    <li>We'll match you with the perfect tutor for your needs.</li>
+                    <li>A free demo class will be scheduled at your convenience.</li>
+                </ul>
+            </div>
+            <a href="index.html" class="ty-btn"><i class="fas fa-home"></i> Return to Home</a>
+            <hr class="ty-divider">
+            <p class="ty-tagline"><i class="fas fa-graduation-cap"></i> Excellence in Personalized Learning</p>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo-row">
+                    <img src="Logo.png" alt="Utkarsh Logo" class="footer-logo-img-actual">
+                    <div>
+                        <span class="footer-logo-main">Utkarsh Home Tuition</span>
+                        <span class="footer-logo-sub">Shiksha se Utkarsh tak</span>
+                    </div>
+                </div>
+                <p>Personalized home tuition for Class 1-12 across all subjects.</p>
+                <div class="footer-social">
+                    <a href="https://wa.me/918809492608" class="social-btn-sm"><i class="fab fa-whatsapp"></i></a>
+                    <a href="tel:+918809492608" class="social-btn-sm"><i class="fas fa-phone"></i></a>
+                    <a href="/cdn-cgi/l/email-protection#57343839233634231723223e233e38397934383a" class="social-btn-sm"><i class="fas fa-envelope"></i></a>
+                    <a href="#" class="social-btn-sm"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="students.html">For Students</a>
+                    <a href="teachers.html">For Teachers</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Contact Us</h5>
+                    <a href="tel:+918809492608"><i class="fas fa-phone" style="margin-right:6px;color:#FF8C38;"></i>+91 8809492608</a>
+                    <a href="/cdn-cgi/l/email-protection#36555958425755427642435f425f59581855595b"><i class="fas fa-envelope" style="margin-right:6px;color:#FF8C38;"></i><span class="__cf_email__" data-cfemail="d2b1bdbca6b3b1a692a6a7bba6bbbdbcfcb1bdbf">[email&#160;protected]</span></a>
+                    <a href="https://wa.me/918809492608"><i class="fab fa-whatsapp" style="margin-right:6px;color:#25D366;"></i>WhatsApp Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Utkarsh Home Tuition. All rights reserved. Made with <i class="fas fa-heart"></i> in India</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING ACTION BUTTONS -->
+    <a href="tel:+918809492608" class="call-float-bounce" aria-label="Call Us">
+        <div class="call-float-icon-wrap"><i class="fas fa-phone"></i></div>
+        <div class="call-float-label">Call Us<span>+91 88094 92608</span></div>
+    </a>
+        <div class="wa-float-icon-wrap">
+            <div class="wa-float-ring"></div>
+            <i class="fab fa-whatsapp"></i>
+        </div>
+    </a>
+    <script src="script.js"></script>
     <script src="premium-animations.js"></script>
 </body>
 </html>
