@@ -2,124 +2,110 @@
 
 /* ── MOBILE NAV ── */
 document.addEventListener('DOMContentLoaded', function () {
-    var btn          = document.querySelector('.edu-nova-mobile-toggle');
-    var menu         = document.querySelector('.edu-nova-menu-area');
-    var header       = document.querySelector('.edu-nova-header');
-    var annoBar      = document.querySelector('.announcement-bar');
+    var btn  = document.querySelector('.edu-nova-mobile-toggle');
+    var menu = document.querySelector('.edu-nova-menu-area');
+    var header  = document.querySelector('.edu-nova-header');
+    var annoBar = document.querySelector('.announcement-bar');
     if (!btn || !menu) return;
 
     var iconBars  = btn.querySelector('.fa-bars');
     var iconTimes = btn.querySelector('.fa-times');
 
-    /* ── Inject full-screen dark backdrop ── */
+    /* ── Dark overlay below the dropdown ── */
     var overlay = document.createElement('div');
-    overlay.id = 'nav-block-overlay';
+    overlay.id  = 'nav-block-overlay';
     overlay.style.cssText = [
         'position:fixed',
-        'inset:0',
-        'z-index:88888',
-        'background:rgba(0,0,0,0.6)',
+        'left:0','right:0','bottom:0',
+        'z-index:99999',
+        'background:rgba(0,0,0,0.5)',
         'opacity:0',
         'visibility:hidden',
         'pointer-events:none',
-        'transition:opacity 0.32s ease',
-        '-webkit-tap-highlight-color:transparent'
+        'transition:opacity 0.3s ease'
     ].join(';');
     document.body.appendChild(overlay);
 
-    /* Give the drawer and toggle their fixed z-indexes via JS so they
-       always win regardless of CSS stacking contexts (backdrop-filter etc.) */
-    menu.style.zIndex = '99999';
-    btn.style.zIndex  = '999999';
-    btn.style.position = 'relative';
+    /* ── helpers ── */
+    function showX() {
+        if (iconBars)  iconBars.setAttribute('style',  'display:none !important');
+        if (iconTimes) iconTimes.setAttribute('style', 'display:block !important; color:var(--primary,#3A0CA3) !important');
+    }
+    function showBars() {
+        if (iconBars)  iconBars.setAttribute('style',  'display:block !important');
+        if (iconTimes) iconTimes.setAttribute('style', 'display:none !important');
+    }
+    function positionOverlay() {
+        var r = menu.getBoundingClientRect();
+        overlay.style.top = Math.round(r.bottom) + 'px';
+    }
 
+    /* ── open ── */
     function openMenu() {
         menu.classList.add('is-open');
         document.body.classList.add('menu-overlay-active');
         document.body.style.overflow = 'hidden';
         btn.setAttribute('aria-expanded', 'true');
-        if (iconBars)  iconBars.style.display  = 'none';
-        /* fa-times stays hidden — no X shown (clean white space) */
+        showX();
 
-        /* Kill backdrop-filter on header (removes stacking context that fights overlay) */
-        if (header) {
-            header.style.backdropFilter = 'none';
-            header.style.webkitBackdropFilter = 'none';
-        }
-        if (annoBar) {
-            annoBar.style.visibility = 'hidden';
-            annoBar.style.opacity = '0';
-            annoBar.style.pointerEvents = 'none';
-        }
+        if (header)  { header.style.backdropFilter = 'none'; header.style.webkitBackdropFilter = 'none'; }
+        if (annoBar) { annoBar.style.visibility = 'hidden'; annoBar.style.opacity = '0'; annoBar.style.pointerEvents = 'none'; }
 
-        /* Show overlay */
-        overlay.style.visibility   = 'visible';
-        overlay.style.opacity      = '1';
-        overlay.style.pointerEvents = 'all';
+        /* show overlay below menu after animation */
+        setTimeout(function () {
+            positionOverlay();
+            overlay.style.visibility = 'visible';
+            overlay.style.pointerEvents = 'auto';
+            overlay.style.opacity = '1';
+        }, 440);
 
-        /* Hide floating buttons */
-        document.querySelectorAll('.call-float-bounce,.whatsapp-float').forEach(function(el){
-            el.style.opacity = '0';
-            el.style.pointerEvents = 'none';
-            el.style.transition = 'opacity 0.2s ease';
+        document.querySelectorAll('.call-float-bounce,.whatsapp-float').forEach(function (el) {
+            el.style.opacity = '0'; el.style.pointerEvents = 'none';
         });
     }
 
+    /* ── close ── */
     function closeMenu() {
         menu.classList.remove('is-open');
         document.body.classList.remove('menu-overlay-active');
         document.body.style.overflow = '';
         btn.setAttribute('aria-expanded', 'false');
-        if (iconBars)  iconBars.style.display  = 'block';
-        /* fa-times always hidden */
+        showBars();
 
-        /* Restore header and announcement bar */
-        if (header) {
-            header.style.backdropFilter = '';
-            header.style.webkitBackdropFilter = '';
-        }
-        if (annoBar) {
-            annoBar.style.visibility = '';
-            annoBar.style.opacity = '';
-            annoBar.style.pointerEvents = '';
-        }
+        if (header)  { header.style.backdropFilter = ''; header.style.webkitBackdropFilter = ''; }
+        if (annoBar) { annoBar.style.visibility = ''; annoBar.style.opacity = ''; annoBar.style.pointerEvents = ''; }
 
-        /* Hide overlay */
-        overlay.style.opacity      = '0';
+        overlay.style.opacity = '0';
         overlay.style.pointerEvents = 'none';
-        setTimeout(function(){ overlay.style.visibility = 'hidden'; }, 320);
+        setTimeout(function () { overlay.style.visibility = 'hidden'; }, 320);
 
-        /* Restore floating buttons */
-        document.querySelectorAll('.call-float-bounce,.whatsapp-float').forEach(function(el){
-            el.style.opacity = '';
-            el.style.pointerEvents = '';
+        document.querySelectorAll('.call-float-bounce,.whatsapp-float').forEach(function (el) {
+            el.style.opacity = ''; el.style.pointerEvents = '';
         });
     }
 
+    /* ── toggle ── */
     function handleToggle(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        if (menu.classList.contains('is-open')) { closeMenu(); } else { openMenu(); }
+        e.preventDefault(); e.stopPropagation();
+        menu.classList.contains('is-open') ? closeMenu() : openMenu();
     }
-
-    btn.addEventListener('click', handleToggle);
+    btn.addEventListener('click',    handleToggle);
     btn.addEventListener('touchend', handleToggle, { passive: false });
 
-    /* Tap dark overlay → close */
+    /* ── overlay closes menu ── */
     overlay.addEventListener('click', closeMenu);
-    overlay.addEventListener('touchend', function(e){ e.preventDefault(); closeMenu(); }, { passive: false });
+    overlay.addEventListener('touchend', function (e) { e.preventDefault(); closeMenu(); }, { passive: false });
 
-    /* Nav links → close then navigate */
-    document.querySelectorAll('.edu-nova-item').forEach(function (a) {
-        a.addEventListener('click', function () { closeMenu(); });
-        a.addEventListener('touchend', function (e) {
+    /* ── nav links ── */
+    menu.querySelectorAll('.edu-nova-list li').forEach(function (li) {
+        var a = li.querySelector('.edu-nova-item');
+        if (!a) return;
+        li.addEventListener('click', function (e) {
             e.preventDefault();
             var href = a.getAttribute('href');
             closeMenu();
-            if (href && href !== '#') {
-                setTimeout(function () { window.location.href = href; }, 80);
-            }
-        }, { passive: false });
+            if (href && href !== '#') { window.location.href = href; }
+        });
     });
 });
 
@@ -231,21 +217,21 @@ document.addEventListener('DOMContentLoaded', function () {
             function reset() { btn.innerHTML = orig; btn.disabled = false; btn.style.opacity = '1'; }
         });
     }
-    sub('studentForm',  'button[type="submit"]', 'thankyou.html');
-    sub('contactForm',  '.premium-btn',          'thank-contact.html');
-    sub('teacherForm',  '.teacher-submit-btn',   'thankyou-tutor.html');
+    sub('studentForm', 'button[type="submit"]', 'thankyou.html');
+    sub('contactForm', '.premium-btn', 'thank-contact.html');
+    sub('teacherForm', '.teacher-submit-btn', 'thankyou-tutor.html');
 });
 
 /* ── PAUSE FLOAT BUTTON ANIMATION DURING MOBILE SCROLL (prevents position jitter) ── */
-(function() {
+(function () {
     var floats = document.querySelectorAll('.call-float-bounce, .whatsapp-float');
     if (!floats.length) return;
     var scrollTimer;
-    window.addEventListener('scroll', function() {
-        floats.forEach(function(el) { el.style.animationPlayState = 'paused'; });
+    window.addEventListener('scroll', function () {
+        floats.forEach(function (el) { el.style.animationPlayState = 'paused'; });
         clearTimeout(scrollTimer);
-        scrollTimer = setTimeout(function() {
-            floats.forEach(function(el) { el.style.animationPlayState = ''; });
+        scrollTimer = setTimeout(function () {
+            floats.forEach(function (el) { el.style.animationPlayState = ''; });
         }, 150);
     }, { passive: true });
 })();
