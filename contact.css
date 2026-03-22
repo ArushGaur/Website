@@ -327,3 +327,194 @@ box-shadow:0 20px 50px rgba(0,0,0,0.08);
     transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s;
     will-change: transform;
 }
+
+/* ══════════════════════════════════════════
+   CONTACT PAGE — IPAD PRO & TABLET OVERHAUL
+   Targets: iPad Pro (1024px), iPad Air (820px), iPad Mini (768px)
+   ══════════════════════════════════════════ */
+
+@media (max-width: 1180px) {
+    .premium-grid {
+        grid-template-columns: 1fr !important;
+        gap: 50px !important;
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .contact-left {
+        text-align: center;
+    }
+
+    .premium-title {
+        font-size: 2.8rem;
+        text-align: center;
+    }
+
+    .premium-sub {
+        text-align: center;
+        margin: 0 auto;
+        max-width: 560px;
+    }
+
+    .badge-pill {
+        display: block;
+        width: max-content;
+        margin: 0 auto 15px;
+    }
+
+    .premium-cards {
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+    }
+
+    .contact-card {
+        flex: 1 1 200px;
+        max-width: 240px;
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .contact-image {
+        max-width: 500px;
+        margin: 24px auto;
+        display: block;
+    }
+
+    .contact-form-premium {
+        padding: 44px 40px;
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 860px) {
+    .premium-grid {
+        max-width: 600px;
+    }
+
+    .premium-title {
+        font-size: 2.4rem;
+    }
+
+    .contact-form-premium {
+        padding: 36px 28px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .premium-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-card {
+        max-width: 420px;
+        width: 100%;
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
+@media (max-width: 600px) {
+    .premium-title {
+        font-size: 2rem;
+    }
+
+    .contact-form-premium {
+        padding: 28px 18px;
+    }
+
+    .contact-section {
+        padding: 40px 0;
+    }
+}
+
+/* ── Compact contact cards on MOBILE only ── */
+@media (max-width: 768px) {
+    .premium-cards {
+        margin-top: 16px;
+        gap: 8px;
+    }
+
+    .contact-card {
+        padding: 1px 12px !important;
+        gap: 10px !important;
+        border-radius: 10px !important;
+        min-height: 0 !important;
+    }
+
+    .contact-card i {
+        padding: 8px !important;
+        border-radius: 8px !important;
+        font-size: 16px !important;
+    }
+}
+
+/* ───────── MOBILE FIXES ───────── */
+@media (max-width: 768px) {
+
+    /* Stack layout */
+    .premium-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* Reduce heading size */
+    .premium-title {
+        font-size: 2rem;
+    }
+
+    /* Contact cards */
+    .contact-card {
+        padding: 14px;
+        gap: 12px;
+        border-radius: 12px;
+    }
+
+    .contact-card i {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .contact-card h4 {
+        font-size: 0.9rem;
+    }
+
+    .contact-card p {
+        font-size: 0.8rem;
+    }
+
+    /* Make cards more compact */
+    .premium-cards {
+        gap: 12px;
+    }
+
+    /* Form spacing */
+    .contact-form-premium {
+        padding: 25px;
+        border-radius: 16px;
+    }
+
+    /* Input grid stack */
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    /* Reduce image size */
+    .contact-image {
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+    }
+}
